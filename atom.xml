@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chengxiao19961022.github.io/"/>
-  <updated>2018-03-01T10:45:13.779Z</updated>
+  <updated>2018-03-01T11:30:10.748Z</updated>
   <id>http://chengxiao19961022.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://chengxiao19961022.github.io/2018/03/01/%E8%AE%A1%E5%88%92-%E5%A4%A7%E5%9B%9B%E4%B8%8B/"/>
     <id>http://chengxiao19961022.github.io/2018/03/01/计划-大四下/</id>
     <published>2018-03-01T08:41:49.000Z</published>
-    <updated>2018-03-01T10:45:13.779Z</updated>
+    <updated>2018-03-01T11:30:10.748Z</updated>
     
-    <content type="html"><![CDATA[<hr><div class="note info"><p>大学本科还剩下1/8，最后半年承上启下，希望对本科阶段的学习有所总结，对研究生生活有所准备，列下一个粗略的计划希望时间不会虚度。</p></div><a id="more"></a><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><h3 id="毕业设计"><a href="#毕业设计" class="headerlink" title="毕业设计"></a>毕业设计</h3><p>毕设需要完成一个较大的工程项目，需要掌握每个模块涉及的技术，包括爬虫、clamav和cuckoo、调度、Web。</p><h4 id="逆向"><a href="#逆向" class="headerlink" title="逆向"></a>逆向</h4><p>完善敏感api组合，完善cuckoo process和signature的自定义。</p><h4 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h4><p>学习使用java语言，掌握基本的架构设计方案，学习thrift跨语言接口定义。</p><h4 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h4><p>基本H5 + JAVA + springMVC</p><h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><p>修满6学分的研究生课程，系统地学习一下网络攻防。</p><h3 id="智能"><a href="#智能" class="headerlink" title="智能"></a>智能</h3><p>学完之前未看完的视频，熟悉一下一些主流的框架，了解神经网络的基本应用。</p><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>《算法导论》+ leetcode，语言使用cpp，每天定量。</p><h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3><h2 id="健身"><a href="#健身" class="headerlink" title="健身"></a>健身</h2><h2 id="吉他"><a href="#吉他" class="headerlink" title="吉他"></a>吉他</h2><h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><p>kindle unlimited每周一本开始</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>希望能坚持写博客，记录平时的学习过程和心得感悟，在技术上和思想上都能有一定升华，望监督。</p>]]></content>
+    <content type="html"><![CDATA[<hr><div class="note info"><p>本科还剩下1/8，最后半年承上启下，希望对本科阶段的学习有所总结，对研究生生活有所准备，列下一个粗略的计划希望时间不会虚度。</p></div><a id="more"></a><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><h3 id="毕业设计"><a href="#毕业设计" class="headerlink" title="毕业设计"></a>毕业设计</h3><p>毕设需要完成一个较大的工程项目，需要掌握每个模块涉及的技术，包括爬虫、clamav和cuckoo、调度、Web。</p><h4 id="逆向"><a href="#逆向" class="headerlink" title="逆向"></a>逆向</h4><p>完善敏感api组合，完善cuckoo process和signature的自定义。</p><h4 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h4><p>学习使用java语言，掌握基本的架构设计方案，学习thrift跨语言接口定义。</p><h4 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h4><p>基本H5 + JAVA + springMVC</p><h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><p>修满6学分的研究生课程，系统地学习一下网络攻防。</p><h3 id="智能"><a href="#智能" class="headerlink" title="智能"></a>智能</h3><p>学完之前未看完的视频，熟悉一下一些主流的框架，了解神经网络的基本应用。</p><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>《算法导论》+ leetcode，语言使用cpp，每天定量。</p><h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3><h2 id="健身"><a href="#健身" class="headerlink" title="健身"></a>健身</h2><h2 id="吉他"><a href="#吉他" class="headerlink" title="吉他"></a>吉他</h2><h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><p>kindle unlimited每周一本开始</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>希望能坚持写博客，记录平时的学习过程和心得感悟，在技术上和思想上都能有一定升华，望监督。</p>]]></content>
     
     <summary type="html">
     
       &lt;hr&gt;
-&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;大学本科还剩下1/8，最后半年承上启下，希望对本科阶段的学习有所总结，对研究生生活有所准备，列下一个粗略的计划希望时间不会虚度。&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;本科还剩下1/8，最后半年承上启下，希望对本科阶段的学习有所总结，对研究生生活有所准备，列下一个粗略的计划希望时间不会虚度。&lt;/p&gt;&lt;/div&gt;
     
     </summary>
     
