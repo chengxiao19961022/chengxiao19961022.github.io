@@ -89,7 +89,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C++,algorithm," />
 
 
 
@@ -105,16 +105,18 @@
 
 
 
-<meta name="description" content="不以物喜，不以己悲。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChengXiao&#39;s Blog">
-<meta property="og:url" content="http://chengxiao19961022.github.io/archives/index.html">
+<meta name="description" content="如题，已知中序和前序（或后序）遍历结果生成树，算法分为两部分，一部分为已知前序和中序，另一部分为已知后序和中序。">
+<meta name="keywords" content="C++,algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="已知中序和前序（或后序）遍历结果生成树">
+<meta property="og:url" content="http://chengxiao19961022.github.io/2018/03/17/已知中序和前序（或后序）遍历结果生成树/index.html">
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
-<meta property="og:description" content="不以物喜，不以己悲。">
+<meta property="og:description" content="如题，已知中序和前序（或后序）遍历结果生成树，算法分为两部分，一部分为已知前序和中序，另一部分为已知后序和中序。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-17T15:27:16.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChengXiao&#39;s Blog">
-<meta name="twitter:description" content="不以物喜，不以己悲。">
+<meta name="twitter:title" content="已知中序和前序（或后序）遍历结果生成树">
+<meta name="twitter:description" content="如题，已知中序和前序（或后序）遍历结果生成树，算法分为两部分，一部分为已知前序和中序，另一部分为已知后序和中序。">
 
 
 
@@ -144,7 +146,7 @@
 
 
 
-  <link rel="canonical" href="http://chengxiao19961022.github.io/archives/"/>
+  <link rel="canonical" href="http://chengxiao19961022.github.io/2018/03/17/已知中序和前序（或后序）遍历结果生成树/"/>
 
 
 
@@ -153,7 +155,7 @@
 
 
 
-  <title>归档 | ChengXiao's Blog</title>
+  <title>已知中序和前序（或后序）遍历结果生成树 | ChengXiao's Blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -199,7 +201,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/chengxiao19961022" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -340,448 +342,325 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chengxiao19961022.github.io/2018/03/17/已知中序和前序（或后序）遍历结果生成树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChengXiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://www.xudeyi.com/dist/img/22539808.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChengXiao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">已知中序和前序（或后序）遍历结果生成树</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T19:48:38+08:00">
+                2018-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/17/已知中序和前序（或后序）遍历结果生成树/" itemprop="url">
-              
-                <span itemprop="name">已知中序和前序（或后序）遍历结果生成树</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-17T19:48:38+08:00"
-              content="2018-03-17" >
-          03-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/01/计划-大四下/" itemprop="url">
-              
-                <span itemprop="name">计划-大四下</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-01T16:41:49+08:00"
-              content="2018-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/08/Scrapy-PhantomJS-Selenium实现动态网页的爬取/" itemprop="url">
-              
-                <span itemprop="name">Scrapy+PhantomJS+Selenium实现动态网页的爬取</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-08T21:01:53+08:00"
-              content="2018-02-08" >
-          02-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/07/Markdown语法/" itemprop="url">
-              
-                <span itemprop="name">Markdown语法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-07T14:55:10+08:00"
-              content="2018-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/07/iOS逆向工具/" itemprop="url">
-              
-                <span itemprop="name">iOS逆向工具</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-07T13:04:02+08:00"
-              content="2018-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/07/Mac系统10-11之后-usr-bin-拷贝权限禁止解决方案/" itemprop="url">
-              
-                <span itemprop="name">Mac系统10.11之后/usr/bin 拷贝权限禁止解决方案</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-07T12:11:56+08:00"
-              content="2018-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/07/lldb-debugserver速查表/" itemprop="url">
-              
-                <span itemprop="name">lldb+debugserver速查表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-07T11:59:48+08:00"
-              content="2018-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/10/cuckoo沙箱问题列表/" itemprop="url">
-              
-                <span itemprop="name">cuckoo沙箱问题列表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-10T20:07:00+08:00"
-              content="2018-01-10" >
-          01-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/10/（转）微信跳一跳辅助/" itemprop="url">
-              
-                <span itemprop="name">微信跳一跳辅助(转)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-10T13:55:34+08:00"
-              content="2018-01-10" >
-          01-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/08/CppPrimer5-ch01-answers/" itemprop="url">
-              
-                <span itemprop="name">CppPrimer5_ch01_answers</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-08T19:51:28+08:00"
-              content="2018-01-08" >
-          01-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2013">2013</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2013/07/13/hello-world/" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">Hello World</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  910
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2013-07-13T20:46:25+08:00"
-              content="2013-07-13" >
-          07-13
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <hr>
+<div class="note info"><p>如题，已知中序和前序（或后序）遍历结果生成树，算法分为两部分，一部分为已知前序和中序，另一部分为已知后序和中序。</p></div>
+<a id="more"></a>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="已知前序和中序"><a href="#已知前序和中序" class="headerlink" title="已知前序和中序"></a>已知前序和中序</h3><ol>
+<li>定位树根，树根即当前前序的首节点。</li>
+<li>定位树根位于中序的位置，该位置左边即左子树，右边即右子树。</li>
+<li>递归左右子树。</li>
+</ol>
+<h3 id="已知后序和中序"><a href="#已知后序和中序" class="headerlink" title="已知后序和中序"></a>已知后序和中序</h3><p>同理</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><blockquote>
+<p>已知</p>
+</blockquote>
+<p>后序序列 LHDKEBFGCA 中序序列 HLDBEKAFCG </p>
+<blockquote>
+<p>求解</p>
+</blockquote>
+<ol>
+<li>由后序序列定位树根，树根为A</li>
+<li>节点A的左子树的中序为HLDBEK，左子树的后序为LHDKEB，右子树的中序为FCG，右子树的后序为FGC</li>
+<li>对于左子树，树根为B，继续第二步，对于右子树，树根为G，继续第二步。</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by Jumormt on 2018/3/17.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    Node(<span class="keyword">char</span> v=<span class="string">'0'</span>):value(v), left(<span class="number">0</span>), right(<span class="number">0</span>)&#123;&#125;</span><br><span class="line">    <span class="keyword">char</span> value;</span><br><span class="line">    Node* left;</span><br><span class="line">    Node* right;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> pre[<span class="number">50</span>] = <span class="string">"ABDHLEKCFG"</span>;        <span class="comment">//前序序列</span></span><br><span class="line"><span class="keyword">char</span> mid[<span class="number">50</span>] = <span class="string">"HLDBEKAFCG"</span>;        <span class="comment">//中序序列</span></span><br><span class="line"><span class="keyword">char</span> post[<span class="number">50</span>] = <span class="string">"LHDKEBFGCA"</span>;        <span class="comment">//后序序列</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BiTree</span>&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    BiTree(Node* n):root(n)&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定位c在中序遍历的位置</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Position</span><span class="params">(<span class="keyword">char</span> c)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">strchr</span>(mid,c)-mid;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    // 数组初始化树的方法</span></span><br><span class="line"><span class="comment">//    // 注意要传入指针的引用，因为函数内试图改变指针的大小R=new Node;不加引用就是无效改变！！另外R-&gt;value = ch[i];是确实会改变传入指针所指对象的。</span></span><br><span class="line"><span class="comment">//    void  Create(Node *&amp;R, int i)</span></span><br><span class="line"><span class="comment">//    &#123;</span></span><br><span class="line"><span class="comment">//        if (ch[i]==0)</span></span><br><span class="line"><span class="comment">//            R = NULL;</span></span><br><span class="line"><span class="comment">//        else</span></span><br><span class="line"><span class="comment">//        &#123;</span></span><br><span class="line"><span class="comment">//            R=new Node;</span></span><br><span class="line"><span class="comment">//            R-&gt;value = ch[i];</span></span><br><span class="line"><span class="comment">//            Create(R-&gt;left, 2*i);</span></span><br><span class="line"><span class="comment">//            Create(R-&gt;right, 2*i+1);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 已知前序和中序遍历整个树 注意传入新参为Node*&amp; root，因为函数内试图改变指针的大小root=new Node;不加引用就是无效改变！！另外root-&gt;value = pre[i];是确实会改变传入指针所指对象的。</span></span><br><span class="line">    <span class="comment">// root为当前遍历树的根节点，i为当前根节点在__前序__遍历pre的序号，j为在__中序__遍历中树序列mid始序号。</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">PreMidCreate</span><span class="params">(Node*&amp; root, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (length &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        root = <span class="keyword">new</span> Node();</span><br><span class="line"></span><br><span class="line">        root-&gt;value = pre[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> pos = Position(pre[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> lenL = pos - j;</span><br><span class="line">        <span class="keyword">int</span> lenR = length - lenL - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        PreMidCreate(root-&gt;left, i+<span class="number">1</span>, j, lenL);</span><br><span class="line">        PreMidCreate(root-&gt;right, i+<span class="number">1</span>+lenL, pos+<span class="number">1</span>, lenR);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 已知后序和中序遍历整个树</span></span><br><span class="line">    <span class="comment">// root为当前遍历树的根节点，i为当前根节点在__前序__遍历pre的序号，j为在__中序__遍历中树序列mid始序号。</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">PostMidCreate</span><span class="params">(Node*&amp; root, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (length &lt;= <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        root = <span class="keyword">new</span> Node();</span><br><span class="line"></span><br><span class="line">        root-&gt;value = post[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> pos = Position(post[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> lenL = pos - j;</span><br><span class="line">        <span class="keyword">int</span> lenR = length - lenL - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        PostMidCreate(root-&gt;left, i<span class="number">-1</span>-lenR, j, lenL);</span><br><span class="line">        PostMidCreate(root-&gt;right, i<span class="number">-1</span>, pos+<span class="number">1</span>, lenR);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//前序遍历</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(Node* root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root)&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;root-&gt;value&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">            preOrder(root-&gt;left);</span><br><span class="line">            preOrder(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 中序遍历</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">midOrder</span><span class="params">(Node* root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root)&#123;</span><br><span class="line">            midOrder(root-&gt;left);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;root-&gt;value&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">            midOrder(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 后序遍历</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">postOrder</span><span class="params">(Node* root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root)&#123;</span><br><span class="line">            postOrder(root-&gt;left);</span><br><span class="line">            postOrder(root-&gt;right);</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;root-&gt;value&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteTree</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node)&#123;</span><br><span class="line">            deleteTree(node-&gt;left);</span><br><span class="line">            deleteTree(node-&gt;right);</span><br><span class="line">            <span class="keyword">delete</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~BiTree()&#123;</span><br><span class="line">        deleteTree(root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function">Node* <span class="title">getRoot</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">    Node* root;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    Node* node = <span class="keyword">new</span> Node();</span><br><span class="line">    <span class="function">BiTree <span class="title">tree</span><span class="params">(node)</span></span>;</span><br><span class="line"></span><br><span class="line">    tree.PreMidCreate(node, <span class="number">0</span>, <span class="number">0</span>, <span class="built_in">strlen</span>(mid));</span><br><span class="line"></span><br><span class="line">    tree.preOrder(node);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
     </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/03/17/已知中序和前序（或后序）遍历结果生成树/">已知中序和前序（或后序）遍历结果生成树</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 ChengXiao 的个人博客">ChengXiao</a></p>
+  <p><span>发布时间:</span>2018年03月17日 - 19:03</p>
+  <p><span>最后更新:</span>2018年03月17日 - 23:03</p>
+  <p><span>原始链接:</span><a href="/2018/03/17/已知中序和前序（或后序）遍历结果生成树/" title="已知中序和前序（或后序）遍历结果生成树">http://chengxiao19961022.github.io/2018/03/17/已知中序和前序（或后序）遍历结果生成树/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://chengxiao19961022.github.io/2018/03/17/已知中序和前序（或后序）遍历结果生成树/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你的鼓励是我前进的动力~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ChengXiao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ChengXiao 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/计划-大四下/" rel="next" title="计划-大四下">
+                <i class="fa fa-chevron-left"></i> 计划-大四下
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
 
 
 
@@ -790,6 +669,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzk1MS8xMDQ4Ng=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -810,8 +698,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -940,6 +837,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#已知前序和中序"><span class="nav-number">1.1.</span> <span class="nav-text">已知前序和中序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#已知后序和中序"><span class="nav-number">1.2.</span> <span class="nav-text">已知后序和中序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例"><span class="nav-number">2.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1095,6 +1008,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1123,6 +1040,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
@@ -1494,26 +1422,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
