@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
 <meta property="og:description" content="使用hexo+git写博客十分简便高效，然而多终端的部署问题有很多坑，本博客将持续更新在多终端部署时遇到的坑。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-18T12:29:47.018Z">
+<meta property="og:updated_time" content="2018-03-18T12:32:40.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo多终端部署持续更新">
 <meta name="twitter:description" content="使用hexo+git写博客十分简便高效，然而多终端的部署问题有很多坑，本博客将持续更新在多终端部署时遇到的坑。">
@@ -506,11 +506,21 @@
 <li><code>git push origin hexo -f</code> 将本地仓库推到远端仓库(默认为hexo分支)</li>
 </ul>
 <h2 id="另一终端的所有操作"><a href="#另一终端的所有操作" class="headerlink" title="另一终端的所有操作"></a>另一终端的所有操作</h2><blockquote>
-<p>将远程clone至本地<br><code>git clone -b hexo git@github.com:yourname/yourname.github.io.git</code></p>
-<p>进入clone下来的仓库以及<strong>next主题文件夹</strong>下执行安装(会根据package.json安装对应的依赖)<br><code>npm install</code></p>
-<p>编辑本地文件后更新远程<br><code>git add . ,git commit -m &quot;update info&quot;， git push origin hexo</code></p>
-<p>部署发布博客<br><code>hexo clean hexo g -d</code></p>
+<p>将远程clone至本地</p>
 </blockquote>
+<p><code>git clone -b hexo git@github.com:yourname/yourname.github.io.git</code></p>
+<blockquote>
+<p>进入clone下来的仓库以及<strong>next主题文件夹</strong>下执行安装(会根据package.json安装对应的依赖)</p>
+</blockquote>
+<p><code>npm install</code></p>
+<blockquote>
+<p>编辑本地文件后更新远程</p>
+</blockquote>
+<p><code>git add . ,git commit -m &quot;update info&quot;， git push origin hexo</code></p>
+<blockquote>
+<p>部署发布博客</p>
+</blockquote>
+<p><code>hexo clean hexo g -d</code></p>
 <h1 id="踩坑记"><a href="#踩坑记" class="headerlink" title="踩坑记"></a>踩坑记</h1><p>暂无</p>
 
       
