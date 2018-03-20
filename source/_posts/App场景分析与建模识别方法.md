@@ -18,8 +18,13 @@ copyright: true
 
 提取出APP的UI信息，如控件的名字、坐标、尺寸、类名、内存，以及控件的树状层级关系，寻找方法通过这些UI信息得到APP当前的场景和动作，建立模型，输入为UIInfo(e.g.[[UIApp keyWindow] recursiveDescription])，输出为APPScene(e.g.发送搜索请求)。
 
+# 想法
+
 app场景识别 App scene recognition
 基于文本的app场景识别 Text-based App scene recognition
+- app行为的定义，是否能通过类名、坐标就简单定义行为。app行为和用户行为的关联。如何定义是首要的。
+- 除了[[UIApp keyWindow] recursiveDescription]还能使用什么方法获取UIinfo
+- 如何建模，是否用机器学习，如何将输入向量化。
 
 # 场景识别(机器学习)
 
