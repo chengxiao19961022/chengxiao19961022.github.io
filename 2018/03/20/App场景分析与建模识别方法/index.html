@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
 <meta property="og:description" content="提取出APP的UI信息，如控件的名字、坐标、尺寸、类名、内存，以及控件的树状层级关系，寻找方法通过这些UI信息得到APP当前的场景和动作，建立模型，输入为UIInfo(e.g.[[UIApp keyWindow] recursiveDescription])，输出为APPScene(e.g.发送搜索请求)。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-20T08:39:21.406Z">
+<meta property="og:updated_time" content="2018-03-20T08:55:40.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="App场景分析与建模识别方法">
 <meta name="twitter:description" content="提取出APP的UI信息，如控件的名字、坐标、尺寸、类名、内存，以及控件的树状层级关系，寻找方法通过这些UI信息得到APP当前的场景和动作，建立模型，输入为UIInfo(e.g.[[UIApp keyWindow] recursiveDescription])，输出为APPScene(e.g.发送搜索请求)。">
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  322
+                  400
                 </span>
               
 
@@ -455,7 +455,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -480,7 +480,12 @@
 <div class="note info"><p>提取出APP的UI信息，如控件的名字、坐标、尺寸、类名、内存，以及控件的树状层级关系，寻找方法通过这些UI信息得到APP当前的场景和动作，建立模型，输入为UIInfo(e.g.[[UIApp keyWindow] recursiveDescription])，输出为APPScene(e.g.发送搜索请求)。</p></div>
 <a id="more"></a>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>提取出APP的UI信息，如控件的名字、坐标、尺寸、类名、内存，以及控件的树状层级关系，寻找方法通过这些UI信息得到APP当前的场景和动作，建立模型，输入为UIInfo(e.g.[[UIApp keyWindow] recursiveDescription])，输出为APPScene(e.g.发送搜索请求)。</p>
-<p>app场景识别 App scene recognition<br>基于文本的app场景识别 Text-based App scene recognition</p>
+<h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><p>app场景识别 App scene recognition<br>基于文本的app场景识别 Text-based App scene recognition</p>
+<ul>
+<li>app行为的定义，是否能通过类名、坐标就简单定义行为。app行为和用户行为的关联。如何定义是首要的。</li>
+<li>除了[[UIApp keyWindow] recursiveDescription]还能使用什么方法获取UIinfo</li>
+<li>如何建模，是否用机器学习，如何将输入向量化。</li>
+</ul>
 <h1 id="场景识别-机器学习"><a href="#场景识别-机器学习" class="headerlink" title="场景识别(机器学习)"></a>场景识别(机器学习)</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="http://www.donews.com/idonews/article/6446.shtm" target="_blank" rel="noopener">计算机视觉和场景识别的前世今生</a></p>
 <p><a href="http://blog.csdn.net/qq_35395045/article/details/77618836" target="_blank" rel="noopener">场景识别论文阅读感想（初步）</a></p>
 <p><a href="http://places.csail.mit.edu/demo.html" target="_blank" rel="noopener">MIT Scene Recognition Demo识别图片是在室内还是室外</a></p>
@@ -830,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#场景识别-机器学习"><span class="nav-number">2.</span> <span class="nav-text">场景识别(机器学习)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">2.2.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#想法"><span class="nav-number">2.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#场景识别-机器学习"><span class="nav-number">3.</span> <span class="nav-text">场景识别(机器学习)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">3.2.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -885,7 +890,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.4k字</span>
+  <span class="post-count">博客全站共10.5k字</span>
 </div>
 
         
