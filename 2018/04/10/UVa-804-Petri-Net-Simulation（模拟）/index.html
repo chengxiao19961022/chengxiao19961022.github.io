@@ -14,8 +14,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('2810'){
+            if (prompt('请输入文章密码') !== '2810'){
                 alert('密码错误！');
                 history.back();
             }
@@ -89,7 +89,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C++,algorithm,数据结构与算法," />
 
 
 
@@ -105,16 +105,20 @@
 
 
 
-<meta name="description" content="不以物喜，不以己悲。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChengXiao&#39;s Blog">
-<meta property="og:url" content="http://chengxiao19961022.github.io/tags/tool/index.html">
+<meta name="description" content="每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。">
+<meta name="keywords" content="C++,algorithm,数据结构与算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" UVa 804 - Petri Net Simulation（模拟）">
+<meta property="og:url" content="http://chengxiao19961022.github.io/2018/04/10/UVa-804-Petri-Net-Simulation（模拟）/index.html">
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
-<meta property="og:description" content="不以物喜，不以己悲。">
+<meta property="og:description" content="每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://wx4.sinaimg.cn/mw1024/005B4KCnly1fq7hlc09rrj30gt0a73zo.jpg">
+<meta property="og:updated_time" content="2018-04-10T05:18:07.689Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChengXiao&#39;s Blog">
-<meta name="twitter:description" content="不以物喜，不以己悲。">
+<meta name="twitter:title" content=" UVa 804 - Petri Net Simulation（模拟）">
+<meta name="twitter:description" content="每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。">
+<meta name="twitter:image" content="https://wx4.sinaimg.cn/mw1024/005B4KCnly1fq7hlc09rrj30gt0a73zo.jpg">
 
 
 
@@ -144,7 +148,7 @@
 
 
 
-  <link rel="canonical" href="http://chengxiao19961022.github.io/tags/tool/"/>
+  <link rel="canonical" href="http://chengxiao19961022.github.io/2018/04/10/UVa-804-Petri-Net-Simulation（模拟）/"/>
 
 
 
@@ -153,7 +157,7 @@
 
 
 
-  <title>标签: tool | ChengXiao's Blog</title>
+  <title> UVa 804 - Petri Net Simulation（模拟） | ChengXiao's Blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -199,7 +203,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/chengxiao19961022" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -340,110 +344,290 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>tool<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chengxiao19961022.github.io/2018/04/10/UVa-804-Petri-Net-Simulation（模拟）/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChengXiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://imgcache.mysodao.com/img3/M03/8F/63/CgAPD1YfZX6nfUmcAAFOpb61i7E640_300x300x2.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ChengXiao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/20/App场景分析与建模识别方法/" itemprop="url">
-              
-                <span itemprop="name">App场景分析与建模识别方法</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline"> UVa 804 - Petri Net Simulation（模拟）</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-20T16:31:51+08:00"
-              content="2018-03-20" >
-          03-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-10T13:11:09+08:00">
+                2018-04-10
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  461
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/07/iOS逆向工具/" itemprop="url">
-              
-                <span itemprop="name">iOS逆向工具</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-07T13:04:02+08:00"
-              content="2018-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
+        <hr>
+<div class="note info"><p>每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。</p></div>
+<a id="more"></a>
+<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>你的任务是模拟Petri网的变迁。Petri网包含NP个库所（用P1，P2…表示）和NT个变迁 （用T1，T2…表示）。0&lt;NP, NT&lt;100。当每个变迁的每个输入库所都至少有一个token时， 变迁是允许的。变迁发生的结果是每个输入库所减少一个token，每个输出库所增加一个 token。变迁的发生是原子性的，即所有token的增加和减少应同时进行。注意，一个变迁可 能有多个相同的输入或者输出。如果一个库所在变迁的输入库所列表中出现了两次，则token 会减少两个。输出库所也是类似。如果有多个变迁是允许的，一次只能发生一个。<br>如图6-24所示，一开始只有T1是允许的，发生一次T1变迁之后有一个token会从P1移动<br>到P2，但仍然只有T1是允许的，因为T2要求P2有两个token。再发生一次T1变迁之后P1中只 剩一个token，而P2中有两个，因为T1和T2都可以发生。假定T2发生，则P2中不再有token，<br>而P3中有一个token，因此T1和T3都是允许的。</p>
+<p><img src="https://wx4.sinaimg.cn/mw1024/005B4KCnly1fq7hlc09rrj30gt0a73zo.jpg" alt=""></p>
+<h1 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h1><p>输入一个Petri网络。初始时每个库所都有一个token。每个变迁用一个整数序列表示，负 数表示输入库所，正数表示输出库所。每个变迁至少包含一个输入和一个输出。最后输入一 个整数NF，表示要发生NF次变迁（同时有多个变迁允许时可以任选一个发生，输入保证这<br>个选择不会影响最终结果）。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/07/lldb-debugserver速查表/" itemprop="url">
-              
-                <span itemprop="name">lldb+debugserver速查表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-07T11:59:48+08:00"
-              content="2018-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/04/10/UVa-804-Petri-Net-Simulation（模拟）/"> UVa 804 - Petri Net Simulation（模拟）</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 ChengXiao 的个人博客">ChengXiao</a></p>
+  <p><span>发布时间:</span>2018年04月10日 - 13:04</p>
+  <p><span>最后更新:</span>2018年04月10日 - 13:04</p>
+  <p><span>原始链接:</span><a href="/2018/04/10/UVa-804-Petri-Net-Simulation（模拟）/" title=" UVa 804 - Petri Net Simulation（模拟）">http://chengxiao19961022.github.io/2018/04/10/UVa-804-Petri-Net-Simulation（模拟）/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://chengxiao19961022.github.io/2018/04/10/UVa-804-Petri-Net-Simulation（模拟）/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
 
       
     </div>
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你的鼓励是我前进的动力~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="ChengXiao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="ChengXiao 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
+          
+            <a href="/tags/数据结构与算法/" rel="tag"><i class="fa fa-tag"></i> 数据结构与算法</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/23/vim基本使用/" rel="next" title="vim基本使用">
+                <i class="fa fa-chevron-left"></i> vim基本使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
 
 
           </div>
@@ -451,6 +635,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzk1MS8xMDQ4Ng=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -471,8 +664,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -589,6 +791,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HINT"><span class="nav-number">2.</span> <span class="nav-text">HINT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -737,6 +955,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -765,6 +987,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
@@ -1136,26 +1369,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
