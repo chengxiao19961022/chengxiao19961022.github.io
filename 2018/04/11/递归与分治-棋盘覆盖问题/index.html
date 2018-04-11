@@ -14,8 +14,8 @@
 
 <script>
     (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('2810'){
+            if (prompt('请输入文章密码') !== '2810'){
                 alert('密码错误！');
                 history.back();
             }
@@ -89,7 +89,7 @@
 
 
 
-  <meta name="keywords" content="Security,tool,iOS," />
+  <meta name="keywords" content="algorithm,C++," />
 
 
 
@@ -105,18 +105,21 @@
 
 
 
-<meta name="description" content="lldb+debugserver是iOS逆向的一个重要的工具，用于动态调试，包括寻找有用api、寻找有用信息等等，结合IDA构成iOS逆向的大半江山。以下是我的速查表。">
-<meta name="keywords" content="Security,tool,iOS">
+<meta name="description" content="每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。">
+<meta name="keywords" content="algorithm,C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lldb+debugserver速查表">
-<meta property="og:url" content="http://chengxiao19961022.github.io/2018/02/07/lldb-debugserver速查表/index.html">
+<meta property="og:title" content="递归与分治-棋盘覆盖问题">
+<meta property="og:url" content="http://chengxiao19961022.github.io/2018/04/11/递归与分治-棋盘覆盖问题/index.html">
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
-<meta property="og:description" content="lldb+debugserver是iOS逆向的一个重要的工具，用于动态调试，包括寻找有用api、寻找有用信息等等，结合IDA构成iOS逆向的大半江山。以下是我的速查表。">
+<meta property="og:description" content="每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T11:05:26.920Z">
+<meta property="og:image" content="https://wxt.sinaimg.cn/mw1024/005B4KCnly1fq93cpcswnj30uv06djrl.jpg?tags=%5B%5D">
+<meta property="og:image" content="https://wxt.sinaimg.cn/mw1024/005B4KCnly1fq93eck98xj30o20n0aa8.jpg?tags=%5B%5D">
+<meta property="og:updated_time" content="2018-04-11T14:38:17.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lldb+debugserver速查表">
-<meta name="twitter:description" content="lldb+debugserver是iOS逆向的一个重要的工具，用于动态调试，包括寻找有用api、寻找有用信息等等，结合IDA构成iOS逆向的大半江山。以下是我的速查表。">
+<meta name="twitter:title" content="递归与分治-棋盘覆盖问题">
+<meta name="twitter:description" content="每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。">
+<meta name="twitter:image" content="https://wxt.sinaimg.cn/mw1024/005B4KCnly1fq93cpcswnj30uv06djrl.jpg?tags=%5B%5D">
 
 
 
@@ -146,7 +149,7 @@
 
 
 
-  <link rel="canonical" href="http://chengxiao19961022.github.io/2018/02/07/lldb-debugserver速查表/"/>
+  <link rel="canonical" href="http://chengxiao19961022.github.io/2018/04/11/递归与分治-棋盘覆盖问题/"/>
 
 
 
@@ -155,7 +158,7 @@
 
 
 
-  <title>lldb+debugserver速查表 | ChengXiao's Blog</title>
+  <title>递归与分治-棋盘覆盖问题 | ChengXiao's Blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -356,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chengxiao19961022.github.io/2018/02/07/lldb-debugserver速查表/">
+    <link itemprop="mainEntityOfPage" href="http://chengxiao19961022.github.io/2018/04/11/递归与分治-棋盘覆盖问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChengXiao">
@@ -373,7 +376,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">lldb+debugserver速查表</h1>
+          <h1 class="post-title" itemprop="name headline">递归与分治-棋盘覆盖问题</h1>
         
 
         <div class="post-meta">
@@ -385,8 +388,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-07T11:59:48+08:00">
-                2018-02-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T22:31:52+08:00">
+                2018-04-11
               </time>
             
 
@@ -408,8 +411,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS逆向/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS逆向</span>
+                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构与算法</span>
                   </a>
                 </span>
 
@@ -439,7 +442,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  735
+                  1,368
                 </span>
               
 
@@ -455,7 +458,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -477,42 +480,22 @@
 
       
         <hr>
-<div class="note info"><p>lldb+debugserver是iOS逆向的一个重要的工具，用于动态调试，包括寻找有用api、寻找有用信息等等，结合IDA构成iOS逆向的大半江山。以下是我的速查表。</p></div>
+<div class="note info"><p>每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。</p></div>
 <a id="more"></a>
-<blockquote>
-<h4 id="一、准备阶段"><a href="#一、准备阶段" class="headerlink" title="一、准备阶段"></a>一、准备阶段</h4></blockquote>
-<ul>
-<li><h4 id="iPhone端开启监听"><a href="#iPhone端开启监听" class="headerlink" title="iPhone端开启监听"></a>iPhone端开启监听</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">debugserver 192.168.3.242:8888 -a &quot;SpringBoard&quot;</span><br><span class="line"></span><br><span class="line">debugserver -x backboard 192.168.3.242:8888 /Applications/AppStore.app/AppStore</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="lldb连接iPhone"><a href="#lldb连接iPhone" class="headerlink" title="lldb连接iPhone"></a>lldb连接iPhone</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process connect connect://192.168.3.235:8888</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="cycript连接"><a href="#cycript连接" class="headerlink" title="cycript连接"></a>cycript连接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -e | grep /Applications(位置)查看当前可执行程序</span><br><span class="line"></span><br><span class="line">cycript -p 可执行程序</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<blockquote>
-<h4 id="二、寻找思路"><a href="#二、寻找思路" class="headerlink" title="二、寻找思路"></a>二、寻找思路</h4></blockquote>
-<ul>
-<li><h4 id="列出当前镜像"><a href="#列出当前镜像" class="headerlink" title="列出当前镜像"></a>列出当前镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image list -o -f</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="列出调用栈信息"><a href="#列出调用栈信息" class="headerlink" title="列出调用栈信息"></a>列出调用栈信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thread backtrace</span><br><span class="line"></span><br><span class="line">bt [all]</span><br><span class="line"></span><br><span class="line">sbt</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="找到view对应的controller"><a href="#找到view对应的controller" class="headerlink" title="找到view对应的controller"></a>找到view对应的controller</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">首先找到view界面的地址（easy），通过调用</span><br><span class="line">[#0x17f92890 nextResponder]找到controller的名字</span><br><span class="line">通过lldb po [controller名 _ivarDescription]和[controller名 _shortMethodDescription]</span><br><span class="line">看方法和属性</span><br><span class="line">对方法和属性所在内存下断点</span><br><span class="line">读取寄存器信息，获取寄存器存放的对象</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="下断点-通过help-br查看"><a href="#下断点-通过help-br查看" class="headerlink" title="下断点(通过help br查看)"></a>下断点(通过help br查看)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b function</span><br><span class="line"></span><br><span class="line">br s -a address</span><br><span class="line"></span><br><span class="line">br s -a ASLR+offset</span><br><span class="line"></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="调试下一步"><a href="#调试下一步" class="headerlink" title="调试下一步"></a>调试下一步</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">br l（断点列表）</span><br><span class="line"></span><br><span class="line">br dis 序号（不加为全）</span><br><span class="line"></span><br><span class="line">br en 序号</span><br><span class="line"></span><br><span class="line">br del 序号</span><br><span class="line"></span><br><span class="line">c(下一个断点)</span><br><span class="line"></span><br><span class="line">s   源码级别单步执行，遇到子函数则进入</span><br><span class="line"></span><br><span class="line">si  单步执行，遇到子函数则进入</span><br><span class="line"></span><br><span class="line">n 源码级别单步执行，遇到子函数不进入，直接步过</span><br><span class="line"></span><br><span class="line">ni 单步执行，遇到子函数不进入，直接步过</span><br><span class="line"></span><br><span class="line">finish/f  退出子函数</span><br><span class="line"></span><br><span class="line">br com add 序号</span><br><span class="line">（执行这条命令后，LLDB会要求我们设置一系列</span><br><span class="line">指令，以“DONE”结束，）</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reg r -a/-A...</span><br><span class="line"></span><br><span class="line">register read -a/-A...</span><br><span class="line"></span><br><span class="line">register write 寄存器 值 （将寄存器赋值）reg w</span><br></pre></td></tr></table></figure>
-</li>
-<li><h4 id="关于打印"><a href="#关于打印" class="headerlink" title="关于打印"></a>关于打印</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">po或p $寄存器        （打印寄存器的值）</span><br><span class="line"></span><br><span class="line">po [$寄存器 或类名  _shortMethodDescription]</span><br><span class="line"></span><br><span class="line">po [$寄存器 或类名  _ivarDescription]</span><br><span class="line">然后通过cycript进行调用，或者lldb本身可以调用：</span><br><span class="line">po [$寄存器 或类名 method]</span><br><span class="line"></span><br><span class="line">po [view subviews]</span><br><span class="line"></span><br><span class="line">po [view superviews]</span><br><span class="line"></span><br><span class="line">po [$r0（寄存器、地址） detailTextLabel]</span><br><span class="line"></span><br><span class="line">po [$r2 propertyForKey:@&quot;set&quot;]拿到setter方法</span><br><span class="line"></span><br><span class="line">po [$r2 propertyForKey:@&quot;get&quot;]拿到getter方法</span><br><span class="line"></span><br><span class="line">po[$r2 allTargets]拿到调用者，用于写在函数前面</span><br><span class="line">拿到了调用者也相当于拿到了类，可以用method或class-dump定位方法和属性，用ida定位方法，进入方法内部作进一步分析，结合lldb再做断点调试，看寄存器的method，看target和寄存器存放的形参。</span><br><span class="line"></span><br><span class="line">po [button allControlEvents]拿到部分形参</span><br><span class="line"></span><br><span class="line">[button actionsForTarget:#0x14609d00</span><br><span class="line">forControlEvent:64]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>通过help ..查看详细</p>
-<p>  “函数的前4个参数存放在R0到R3中，其他参数<br>存放在栈中；返回值放在R0中。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; debugserver -x backboard 192.168.3.183:8888 /var/containers/Bundle/Application/A910BD37-4684-49A6-97A7-924891F98D90/WYParking.app/WYParking</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote>
-
+<p>转自:<a href="https://blog.csdn.net/q547550831/article/details/51541527" target="_blank" rel="noopener">分治法——棋盘覆盖问题</a></p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>棋盘覆盖问题。有一个2k∗2k的方格棋盘，恰有一个方格是黑色的，其他为白色。你的任务是用包含3个方格的L型牌覆盖所有白色方格。黑色方格不能被覆盖，且任意一个白色方格不能同时被两个或更多牌覆盖。如图所示为L型牌的4种旋转方式。</p>
+<p><img src="https://wxt.sinaimg.cn/mw1024/005B4KCnly1fq93cpcswnj30uv06djrl.jpg?tags=%5B%5D" alt=""></p>
+<h1 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h1><h2 id="分治三步骤"><a href="#分治三步骤" class="headerlink" title="分治三步骤"></a>分治三步骤</h2><p>划分问题：将2k∗2k的棋盘划分为2k−1∗2k−1这样的子棋盘4块。</p>
+<p>递归求解：递归填充各个格子，填充分为四个情况，在下面会有解释，递归出口为k=0也就是子棋盘方格数为1。</p>
+<p>合并问题：不需要合并子问题。</p>
+<h2 id="递归填充的四种情况"><a href="#递归填充的四种情况" class="headerlink" title="递归填充的四种情况"></a>递归填充的四种情况</h2><p>如果黑方块在左上子棋盘，则递归填充左上子棋盘；否则填充左上子棋盘的右下角，将右下角看做黑色方块，然后递归填充左上子棋盘。</p>
+<p>如果黑方块在右上子棋盘，则递归填充右上子棋盘；否则填充右上子棋盘的左下角，将左下角看做黑色方块，然后递归填充右上子棋盘。</p>
+<p>如果黑方块在左下子棋盘，则递归填充左下子棋盘；否则填充左下子棋盘的右上角，将右上角看做黑色方块，然后递归填充左下子棋盘。</p>
+<p>如果黑方块在右下子棋盘，则递归填充右下子棋盘；否则填充右下子棋盘的右下角，将左上角看做黑色方块，然后递归填充右下子棋盘。</p>
+<p><img src="https://wxt.sinaimg.cn/mw1024/005B4KCnly1fq93eck98xj30o20n0aa8.jpg?tags=%5B%5D" alt=""></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxNum = <span class="number">1</span> &lt;&lt; <span class="number">10</span>;</span><br><span class="line"><span class="comment">// 棋盘</span></span><br><span class="line"><span class="keyword">int</span> chess[maxNum][maxNum];</span><br><span class="line"><span class="comment">// L型牌编号</span></span><br><span class="line"><span class="keyword">int</span> number;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">chessBoard</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> column, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> siz)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 递归出口</span></span><br><span class="line">    <span class="keyword">if</span>(siz == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对半划分成2^(siz - 1) * 2^(siz - 1)的棋盘</span></span><br><span class="line">    <span class="keyword">int</span> s = siz / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">// L型牌编号自增</span></span><br><span class="line">    <span class="keyword">int</span> t = ++number;</span><br><span class="line">    <span class="comment">// 中间点，以此判别(x,y)在哪个子棋盘中</span></span><br><span class="line">    <span class="keyword">int</span> centerRow = row + s;</span><br><span class="line">    <span class="keyword">int</span> centerColumn = column + s;</span><br><span class="line">    <span class="comment">// 黑色方格在左上子棋盘</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt; centerRow &amp;&amp; y &lt; centerColumn) &#123;</span><br><span class="line">        chessBoard(row, column, x, y, s);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 不在则填充左上子棋盘的右下角</span></span><br><span class="line">        chess[centerRow - <span class="number">1</span>][centerColumn - <span class="number">1</span>] = t;</span><br><span class="line">        <span class="comment">// 然后覆盖其他格子，注意这时(x,y)要看做已填充位置</span></span><br><span class="line">        chessBoard(row, column, centerRow - <span class="number">1</span>, centerColumn - <span class="number">1</span>, s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 黑色方格在右上子棋盘</span></span><br><span class="line">    <span class="keyword">if</span>(x &lt; centerRow &amp;&amp; y &gt;= centerColumn) &#123;</span><br><span class="line">        chessBoard(row, centerColumn, x, y, s);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 不在则填充右上子棋盘的左下角</span></span><br><span class="line">        chess[centerRow - <span class="number">1</span>][centerColumn] = t;</span><br><span class="line">        <span class="comment">// 然后覆盖其他格子，注意这时(x,y)要看做已填充位置</span></span><br><span class="line">        chessBoard(row, centerColumn, centerRow - <span class="number">1</span>, centerColumn, s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 黑色方格在左下子棋盘</span></span><br><span class="line">    <span class="keyword">if</span>(x &gt;= centerRow &amp;&amp; y &lt; centerColumn) &#123;</span><br><span class="line">        chessBoard(centerRow, column, x, y, s);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 不在则填充左下子棋盘的右上角</span></span><br><span class="line">        chess[centerRow][centerColumn - <span class="number">1</span>] = t;</span><br><span class="line">        <span class="comment">// 然后覆盖其他格子，注意这时(x,y)要看做已填充位置</span></span><br><span class="line">        chessBoard(centerRow, column, centerRow, centerColumn - <span class="number">1</span>, s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 黑色方格在右下子棋盘</span></span><br><span class="line">    <span class="keyword">if</span>(x &gt;= centerRow &amp;&amp; y &gt;= centerColumn) &#123;</span><br><span class="line">        chessBoard(centerRow, centerColumn, x, y, s);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 不在则填充右下子棋盘的左上角</span></span><br><span class="line">        chess[centerRow][centerColumn] = t;</span><br><span class="line">        <span class="comment">// 然后覆盖其他格子，注意这时(x,y)要看做已填充位置</span></span><br><span class="line">        chessBoard(centerRow, centerColumn, centerRow, centerColumn, s);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 大小，黑色方格位置</span></span><br><span class="line">    <span class="keyword">int</span> siz, x, y;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"(x,y)从(0,0)开始,输入数据为0 0 0即结束程序。"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入棋盘大小和黑色方格位置(x,y)："</span>;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; siz &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="comment">// 退出条件</span></span><br><span class="line">        <span class="keyword">if</span>(siz == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 涂黑(x,y)，初始化L型牌编号</span></span><br><span class="line">        chess[x][y] = number = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 分治法填满棋盘</span></span><br><span class="line">        chessBoard(<span class="number">0</span>, <span class="number">0</span>, x, y, siz);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出该棋盘</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; siz; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; siz; j++) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; chess[i][j] &lt;&lt; <span class="string">"\t"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="测试输出"><a href="#测试输出" class="headerlink" title="测试输出"></a>测试输出</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">(x,y)从(<span class="number">0</span>,<span class="number">0</span>)开始,输入数据为<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>即结束程序。</span><br><span class="line">请输入棋盘大小和黑色方格位置(x,y)：<span class="number">2</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="number">1</span>       <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>       <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(x,y)从(<span class="number">0</span>,<span class="number">0</span>)开始,输入数据为<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>即结束程序。</span><br><span class="line">请输入棋盘大小和黑色方格位置(x,y)：<span class="number">4</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span>       <span class="number">3</span>       <span class="number">4</span>       <span class="number">4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>       <span class="number">1</span>       <span class="number">2</span>       <span class="number">4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>       <span class="number">2</span>       <span class="number">2</span>       <span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>       <span class="number">5</span>       <span class="number">6</span>       <span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(x,y)从(<span class="number">0</span>,<span class="number">0</span>)开始,输入数据为<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>即结束程序。</span><br><span class="line">请输入棋盘大小和黑色方格位置(x,y)：<span class="number">8</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">4</span>       <span class="number">4</span>       <span class="number">5</span>       <span class="number">5</span>       <span class="number">9</span>       <span class="number">9</span>       <span class="number">10</span>      <span class="number">10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       <span class="number">3</span>       <span class="number">3</span>       <span class="number">5</span>       <span class="number">9</span>       <span class="number">8</span>       <span class="number">8</span>       <span class="number">10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">6</span>       <span class="number">3</span>       <span class="number">1</span>       <span class="number">7</span>       <span class="number">11</span>      <span class="number">11</span>      <span class="number">8</span>       <span class="number">12</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">6</span>       <span class="number">6</span>       <span class="number">7</span>       <span class="number">7</span>       <span class="number">2</span>       <span class="number">11</span>      <span class="number">12</span>      <span class="number">12</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">14</span>      <span class="number">14</span>      <span class="number">15</span>      <span class="number">2</span>       <span class="number">2</span>       <span class="number">19</span>      <span class="number">20</span>      <span class="number">20</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">14</span>      <span class="number">13</span>      <span class="number">15</span>      <span class="number">15</span>      <span class="number">19</span>      <span class="number">19</span>      <span class="number">18</span>      <span class="number">20</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">16</span>      <span class="number">13</span>      <span class="number">13</span>      <span class="number">17</span>      <span class="number">21</span>      <span class="number">18</span>      <span class="number">18</span>      <span class="number">22</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">16</span>      <span class="number">16</span>      <span class="number">17</span>      <span class="number">17</span>      <span class="number">21</span>      <span class="number">21</span>      <span class="number">22</span>      <span class="number">22</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(x,y)从(<span class="number">0</span>,<span class="number">0</span>)开始,输入数据为<span class="number">0</span> <span class="number">0</span> <span class="number">0</span>即结束程序。</span><br><span class="line">请输入棋盘大小和黑色方格位置(x,y)：<span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">Process returned <span class="number">0</span> (<span class="number">0x0</span>)   execution time : <span class="number">29.988</span> s</span><br><span class="line">Press any key to <span class="keyword">continue</span>.</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1>
       
     </div>
     
@@ -538,12 +521,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/02/07/lldb-debugserver速查表/">lldb+debugserver速查表</a></p>
+  <p><span>本文标题:</span><a href="/2018/04/11/递归与分治-棋盘覆盖问题/">递归与分治-棋盘覆盖问题</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ChengXiao 的个人博客">ChengXiao</a></p>
-  <p><span>发布时间:</span>2018年02月07日 - 11:02</p>
-  <p><span>最后更新:</span>2018年03月01日 - 19:03</p>
-  <p><span>原始链接:</span><a href="/2018/02/07/lldb-debugserver速查表/" title="lldb+debugserver速查表">http://chengxiao19961022.github.io/2018/02/07/lldb-debugserver速查表/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://chengxiao19961022.github.io/2018/02/07/lldb-debugserver速查表/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年04月11日 - 22:04</p>
+  <p><span>最后更新:</span>2018年04月11日 - 22:04</p>
+  <p><span>原始链接:</span><a href="/2018/04/11/递归与分治-棋盘覆盖问题/" title="递归与分治-棋盘覆盖问题">http://chengxiao19961022.github.io/2018/04/11/递归与分治-棋盘覆盖问题/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://chengxiao19961022.github.io/2018/04/11/递归与分治-棋盘覆盖问题/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -603,11 +586,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Security/" rel="tag"><i class="fa fa-tag"></i> Security</a>
+            <a href="/tags/algorithm/" rel="tag"><i class="fa fa-tag"></i> algorithm</a>
           
-            <a href="/tags/tool/" rel="tag"><i class="fa fa-tag"></i> tool</a>
-          
-            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
           
         </div>
       
@@ -647,8 +628,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/10/cuckoo沙箱问题列表/" rel="next" title="cuckoo沙箱问题列表">
-                <i class="fa fa-chevron-left"></i> cuckoo沙箱问题列表
+              <a href="/2018/04/10/UVa806-习题6-8-空间结构（Spatial-Structures-ACM-ICPC-World-Finals-1998）/" rel="next" title="UVa806 习题6-8 空间结构（Spatial Structures,ACM/ICPC World Finals 1998）">
+                <i class="fa fa-chevron-left"></i> UVa806 习题6-8 空间结构（Spatial Structures,ACM/ICPC World Finals 1998）
               </a>
             
           </div>
@@ -656,10 +637,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/07/Mac系统10-11之后-usr-bin-拷贝权限禁止解决方案/" rel="prev" title="Mac系统10.11之后/usr/bin 拷贝权限禁止解决方案">
-                Mac系统10.11之后/usr/bin 拷贝权限禁止解决方案 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -855,7 +832,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、准备阶段"><span class="nav-number">1.</span> <span class="nav-text">一、准备阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iPhone端开启监听"><span class="nav-number">2.</span> <span class="nav-text">iPhone端开启监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lldb连接iPhone"><span class="nav-number">3.</span> <span class="nav-text">lldb连接iPhone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cycript连接"><span class="nav-number">4.</span> <span class="nav-text">cycript连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、寻找思路"><span class="nav-number">5.</span> <span class="nav-text">二、寻找思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列出当前镜像"><span class="nav-number">6.</span> <span class="nav-text">列出当前镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列出调用栈信息"><span class="nav-number">7.</span> <span class="nav-text">列出调用栈信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到view对应的controller"><span class="nav-number">8.</span> <span class="nav-text">找到view对应的controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下断点-通过help-br查看"><span class="nav-number">9.</span> <span class="nav-text">下断点(通过help br查看)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试下一步"><span class="nav-number">10.</span> <span class="nav-text">调试下一步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#寄存器"><span class="nav-number">11.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于打印"><span class="nav-number">12.</span> <span class="nav-text">关于打印</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HINT"><span class="nav-number">2.</span> <span class="nav-text">HINT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分治三步骤"><span class="nav-number">2.1.</span> <span class="nav-text">分治三步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归填充的四种情况"><span class="nav-number">2.2.</span> <span class="nav-text">递归填充的四种情况</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试输出"><span class="nav-number">4.</span> <span class="nav-text">测试输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
