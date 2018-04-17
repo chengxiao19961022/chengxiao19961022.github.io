@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[算法小计B2]]></title>
     <url>%2F2018%2F04%2F17%2F%E7%AE%97%E6%B3%95%E5%B0%8F%E8%AE%A1B2%2F</url>
-    <content type="text"><![CDATA[每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。 2018-04-16P294 字典序输出所有排列HINT递归调用 代码123456789101112131415void print_permutation(int n, int* A, int cur) &#123; if(cur == n) &#123; //递归边界 for(int i = 0; i &lt; n; i++) printf("%d ", A[i]); printf("\n"); &#125; else for(int i = 1; i &lt;= n; i++) &#123; //尝试在A[cur]中填各种整数i int ok = 1; for(int j = 0; j &lt; cur; j++) if(A[j] == i) ok = 0; //如果i已经在A[0]~A[cur-1]出现过，则不能再选 if(ok) &#123; A[cur] = i; print_permutation(n, A, cur+1); //递归调用 &#125; &#125;&#125;]]></content>
+    <content type="text"><![CDATA[每天坚持做算法题，熟悉基本的套路，巩固语言基础，总结经验记下所学所想。 2018-04-16P294 输出所有排列HINT递归调用 代码1234567891011121314151617181920212223242526272829303132333435// 字典序输出1-n的全排列void print_permutation(int n, int* A, int cur) &#123; if(cur == n) &#123; //递归边界 for(int i = 0; i &lt; n; i++) printf("%d ", A[i]); printf("\n"); &#125; else for(int i = 1; i &lt;= n; i++) &#123; //尝试在A[cur]中填各种整数i int ok = 1; for(int j = 0; j &lt; cur; j++) if(A[j] == i) ok = 0; //如果i已经在A[0]~A[cur-1]出现过，则不能再选 if(ok) &#123; A[cur] = i; print_permutation(n, A, cur+1); //递归调用 &#125; &#125;&#125;// 输出集合P的全排列void print_permutation(int n, int* A, int cur, int* P) &#123; if(cur == n) &#123; //递归边界 for(int i = 0; i &lt; n; i++) printf("%d ", A[i]); printf("\n"); &#125; else for(int i = 1; i &lt;= n; i++) &#123; //尝试在A[cur]中填P[i] int c1=0, c2=0; for(int k = 0; k &lt; cur; ++k) if(A[k] == P[i]) ++c1; for(int k = 0; k &lt; n; ++k) if(P[k] == P[i]) ++c2; if(c1&lt;c2) &#123; A[cur] = P[i]; print_permutation(n, A, cur+1); //递归调用 &#125; &#125;&#125;]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
