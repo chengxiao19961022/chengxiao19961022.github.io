@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
 <meta property="og:description" content="源码检测包括代码检查、静态结构分析、代码质量度量等。它可以由人工进行，充分发挥人的逻辑思维优势，也可以借助软件工具自动进行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-03T15:00:23.668Z">
+<meta property="og:updated_time" content="2018-07-05T08:50:40.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Findbugs的安装及使用">
 <meta name="twitter:description" content="源码检测包括代码检查、静态结构分析、代码质量度量等。它可以由人工进行，充分发挥人的逻辑思维优势，也可以借助软件工具自动进行。">
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,869
+                  1,871
                 </span>
               
 
@@ -479,43 +479,43 @@
         <hr>
 <div class="note info"><p>源码检测包括代码检查、静态结构分析、代码质量度量等。它可以由人工进行，充分发挥人的逻辑思维优势，也可以借助软件工具自动进行。</p></div>
 <a id="more"></a>
-<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="源码检测"><a href="#源码检测" class="headerlink" title="源码检测"></a>源码检测</h2><blockquote>
-<p><a href="https://blog.csdn.net/dongwuming/article/details/49423909" target="_blank" rel="noopener">一些源码检测工具</a></p>
-</blockquote>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="源码检测"><a href="#源码检测" class="headerlink" title="源码检测"></a>源码检测</h2><p>(<a href="https://blog.csdn.net/dongwuming/article/details/49423909" target="_blank" rel="noopener">一些源码检测工具</a>)</p>
 <p>源码检测包括代码检查、静态结构分析、代码质量度量等。它可以由人工进行，充分发挥人的逻辑思维优势，也可以借助软件工具自动进行。代码检查代码检查包括代码走查、桌面检查、代码审查等，主要检查代码和设计的一致性，代码对标准的遵循、可读性，代码的逻辑表达的正确性，代码结构的合理性等方面；可以发现违背程序编写标准的问题，程序中不安全、不明确和模糊的部分，找出程序中不可移植部分、违背程序编程风格的问题，包括变量检查、命名和类型审查、程序逻辑审查、程序语法检查和程序结构检查等内容。</p>
 <h2 id="Findbugs介绍"><a href="#Findbugs介绍" class="headerlink" title="Findbugs介绍"></a>Findbugs介绍</h2><p>Findbugs是一个静态分析工具，它检查类或者JAR 文件，将字节码与一组缺陷模式进行对比以发现可能的问题。Findbugs自带检测器，其中有60余种Bad practice，80余种Correctness，1种 Internationalization，12种Malicious code vulnerability，27种Multithreaded correctness，23种Performance，43种Dodgy。我们还可以自己配置检查规则(做哪些检查,不做哪些检查)，也可以自己来实现独有的校验规则(用户自定义特定的bug模式需要继承它的接口,编写自己的校验类,属于高级技巧)。</p>
-<h1 id="安装及运行（非插件版）（后文都是基于非插件版）"><a href="#安装及运行（非插件版）（后文都是基于非插件版）" class="headerlink" title="安装及运行（非插件版）（后文都是基于非插件版）"></a>安装及运行（非插件版）（后文都是基于非插件版）</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>必须：</p>
-<blockquote>
-<p>Jdk7u（新版ant编译时会报错）</p>
+<h1 id="安装及运行（非插件版）（后文都是基于非插件版）"><a href="#安装及运行（非插件版）（后文都是基于非插件版）" class="headerlink" title="安装及运行（非插件版）（后文都是基于非插件版）"></a>安装及运行（非插件版）（后文都是基于非插件版）</h1><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><blockquote>
+<p>必须：</p>
 </blockquote>
+<ol>
+<li><p>Jdk7u（新版ant编译时会报错）</p>
 <ol>
 <li>解压至/usr/local</li>
 <li><p>配置环境变量vim /etc/bash.bashrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/jdk1.7.0_80</span><br><span class="line">export JRE_HOME=/usr/local/jdk1.7.0_80/jre</span><br><span class="line">export PATH=$PATH:/usr/local/jdk1.7.0_80/bin</span><br><span class="line">export CLASSPATH=./:/usr/local/jdk1.7.0_80/lib:/usr/local/jdk1.7.0_80/jre/lib</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/jdk1.7.0_80</span><br><span class="line">export JRE_HOME=/usr/local/jdk1.7.0_80/jre</span><br><span class="line">export PATH=$PATH:/usr/local/jdk1.7.0_80/bin</span><br><span class="line">export CLASSPATH=./:/usr/local/jdk1.7.0_80/lib:/usr/local/jdk1.7.0_80/jre/lib</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>source并查看version</p>
 </li>
 </ol>
-<blockquote>
-<p>Ant-1.9.x（<a href="https://ant.apache.org/bindownload.cgi）" target="_blank" rel="noopener">https://ant.apache.org/bindownload.cgi）</a></p>
-</blockquote>
+</li>
+<li><p>Ant-1.9.x（<a href="https://ant.apache.org/bindownload.cgi）" target="_blank" rel="noopener">https://ant.apache.org/bindownload.cgi）</a></p>
 <ol>
 <li>解压至/usr/local</li>
 <li><p>配置环境变量vim /etc/bash.bashrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#set Ant enviroment</span><br><span class="line">export ANT_HOME=/usr/apache-ant-1.9.2</span><br><span class="line">export PATH=$PATH:$ANT_HOME/bin</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#set Ant enviroment</span><br><span class="line">export ANT_HOME=/usr/apache-ant-1.9.2</span><br><span class="line">export PATH=$PATH:$ANT_HOME/bin</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>source并查看version</p>
+</li>
+</ol>
 </li>
 </ol>
 <blockquote>
 <p>Git</p>
-</blockquote>
 <p>非必须：</p>
+</blockquote>
 <h2 id="安装findbugs"><a href="#安装findbugs" class="headerlink" title="安装findbugs"></a>安装findbugs</h2><ol>
 <li>下载源码：<a href="https://sourceforge.net/projects/findbugs/files/findbugs/3.0.1/findbugs-3.0.1-source.zip/download?use_mirror=jaist&amp;download=" target="_blank" rel="noopener">https://sourceforge.net/projects/findbugs/files/findbugs/3.0.1/findbugs-3.0.1-source.zip/download?use_mirror=jaist&amp;download=</a></li>
 <li>进入目录后运行ant build</li>
 <li><p>配置环境变量vim /etc/bash.bashrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#set findbugshome</span><br><span class="line">export FINDBUGS_HOME=/usr/local/findbugs-3.0.1</span><br><span class="line">export PATH=$PATH:$FINDBUGS_HOME/bin</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#set findbugshome</span><br><span class="line">export FINDBUGS_HOME=/usr/local/findbugs-3.0.1</span><br><span class="line">export PATH=$PATH:$FINDBUGS_HOME/bin</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>source激活</p>
 </li>
@@ -594,7 +594,7 @@
   <p><span>本文标题:</span><a href="/2018/07/03/Findbugs的安装及使用/">Findbugs的安装及使用</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ChengXiao 的个人博客">ChengXiao</a></p>
   <p><span>发布时间:</span>2018年07月03日 - 22:07</p>
-  <p><span>最后更新:</span>2018年07月03日 - 23:07</p>
+  <p><span>最后更新:</span>2018年07月05日 - 16:07</p>
   <p><span>原始链接:</span><a href="/2018/07/03/Findbugs的安装及使用/" title="Findbugs的安装及使用">http://chengxiao19961022.github.io/2018/07/03/Findbugs的安装及使用/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://chengxiao19961022.github.io/2018/07/03/Findbugs的安装及使用/"  aria-label="复制成功！"></i></span>
   </p>
