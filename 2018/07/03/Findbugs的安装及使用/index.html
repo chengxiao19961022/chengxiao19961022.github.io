@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
 <meta property="og:description" content="源码检测包括代码检查、静态结构分析、代码质量度量等。它可以由人工进行，充分发挥人的逻辑思维优势，也可以借助软件工具自动进行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-05T08:50:40.208Z">
+<meta property="og:updated_time" content="2018-07-05T08:57:05.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Findbugs的安装及使用">
 <meta name="twitter:description" content="源码检测包括代码检查、静态结构分析、代码质量度量等。它可以由人工进行，充分发挥人的逻辑思维优势，也可以借助软件工具自动进行。">
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,871
+                  1,900
                 </span>
               
 
@@ -565,6 +565,9 @@
 </a></p>
 <p><a href="https://www.jianshu.com/p/18069b96f44c" target="_blank" rel="noopener">增加自定义findbugs规则集
 </a></p>
+<h1 id="SpotBugs"><a href="#SpotBugs" class="headerlink" title="SpotBugs"></a><a href="https://spotbugs.github.io/" target="_blank" rel="noopener">SpotBugs</a></h1><blockquote>
+<p>SpotBugs是Findbugs的继任者，Findbugs已经不再维护，不过SpotBugs继承了绝大部分Fingbugs的代码结构。</p>
+</blockquote>
 
       
     </div>
@@ -902,7 +905,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#源码检测"><span class="nav-number">1.1.</span> <span class="nav-text">源码检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Findbugs介绍"><span class="nav-number">1.2.</span> <span class="nav-text">Findbugs介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装及运行（非插件版）（后文都是基于非插件版）"><span class="nav-number">2.</span> <span class="nav-text">安装及运行（非插件版）（后文都是基于非插件版）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖"><span class="nav-number">2.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装findbugs"><span class="nav-number">2.2.</span> <span class="nav-text">安装findbugs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行findbugs"><span class="nav-number">2.3.</span> <span class="nav-text">运行findbugs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理"><span class="nav-number">3.</span> <span class="nav-text">基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缺陷模式匹配"><span class="nav-number">3.1.</span> <span class="nav-text">缺陷模式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据流分析"><span class="nav-number">3.2.</span> <span class="nav-text">数据流分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测对象"><span class="nav-number">3.3.</span> <span class="nav-text">检测对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测能力"><span class="nav-number">3.4.</span> <span class="nav-text">检测能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">3.5.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深入理解findbugs"><span class="nav-number">4.</span> <span class="nav-text">深入理解findbugs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定制规则"><span class="nav-number">5.</span> <span class="nav-text">定制规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于如何编写规则"><span class="nav-number">5.1.</span> <span class="nav-text">关于如何编写规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规则整理"><span class="nav-number">5.2.</span> <span class="nav-text">规则整理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#源码检测"><span class="nav-number">1.1.</span> <span class="nav-text">源码检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Findbugs介绍"><span class="nav-number">1.2.</span> <span class="nav-text">Findbugs介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装及运行（非插件版）（后文都是基于非插件版）"><span class="nav-number">2.</span> <span class="nav-text">安装及运行（非插件版）（后文都是基于非插件版）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖"><span class="nav-number">2.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装findbugs"><span class="nav-number">2.2.</span> <span class="nav-text">安装findbugs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行findbugs"><span class="nav-number">2.3.</span> <span class="nav-text">运行findbugs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理"><span class="nav-number">3.</span> <span class="nav-text">基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缺陷模式匹配"><span class="nav-number">3.1.</span> <span class="nav-text">缺陷模式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据流分析"><span class="nav-number">3.2.</span> <span class="nav-text">数据流分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测对象"><span class="nav-number">3.3.</span> <span class="nav-text">检测对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测能力"><span class="nav-number">3.4.</span> <span class="nav-text">检测能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">3.5.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深入理解findbugs"><span class="nav-number">4.</span> <span class="nav-text">深入理解findbugs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定制规则"><span class="nav-number">5.</span> <span class="nav-text">定制规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于如何编写规则"><span class="nav-number">5.1.</span> <span class="nav-text">关于如何编写规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规则整理"><span class="nav-number">5.2.</span> <span class="nav-text">规则整理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpotBugs"><span class="nav-number">7.</span> <span class="nav-text">SpotBugs</span></a></li></ol></div>
             
 
           </div>
