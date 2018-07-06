@@ -108,14 +108,14 @@
 <meta name="description" content="SpotBugs是Findbugs的继任者，Findbugs已经不再维护，不过SpotBugs继承了绝大部分Fingbugs的代码结构,他们的原理基本相同，同样利用了BCEL字节码程序设计库，这个设计库专门用于分析java字节码，且都是基于观察者模式并给予实现。">
 <meta name="keywords" content="algorithm,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpotBugss安装及使用">
+<meta property="og:title" content="SpotBugs安装及使用">
 <meta property="og:url" content="http://chengxiao19961022.github.io/2018/07/06/SpotBugs安装及使用/index.html">
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
 <meta property="og:description" content="SpotBugs是Findbugs的继任者，Findbugs已经不再维护，不过SpotBugs继承了绝大部分Fingbugs的代码结构,他们的原理基本相同，同样利用了BCEL字节码程序设计库，这个设计库专门用于分析java字节码，且都是基于观察者模式并给予实现。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-06T02:23:21.783Z">
+<meta property="og:updated_time" content="2018-07-06T09:29:44.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpotBugss安装及使用">
+<meta name="twitter:title" content="SpotBugs安装及使用">
 <meta name="twitter:description" content="SpotBugs是Findbugs的继任者，Findbugs已经不再维护，不过SpotBugs继承了绝大部分Fingbugs的代码结构,他们的原理基本相同，同样利用了BCEL字节码程序设计库，这个设计库专门用于分析java字节码，且都是基于观察者模式并给予实现。">
 
 
@@ -155,7 +155,7 @@
 
 
 
-  <title>SpotBugss安装及使用 | ChengXiao's Blog</title>
+  <title>SpotBugs安装及使用 | ChengXiao's Blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -373,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpotBugss安装及使用</h1>
+          <h1 class="post-title" itemprop="name headline">SpotBugs安装及使用</h1>
         
 
         <div class="post-meta">
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  542
+                  569
                 </span>
               
 
@@ -490,6 +490,8 @@
 </ol>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><a href="http://spotbugs.readthedocs.io/en/latest/running.html" target="_blank" rel="noopener">官方使用描述</a></p>
 <p>SpotBugs非插件版本支持gui和命令行两种使用方式,默认为gui，具体参数及使用说明参见官方使用描述。</p>
+<p>注意：要分析的文件放在命令行的最后。</p>
+<p>例：<code>spotbugs -textui -low -html -output result.html /path/to/src</code></p>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>SpotBugs具备良好的扩展性，将自定义的检测器工程打成jar包放置在plugin文件夹下便可以直接使用。</p>
 <p>比较流行的插件：<a href="http://fb-contrib.sourceforge.net/" target="_blank" rel="noopener">fb-contrib</a><br>和<a href="http://find-sec-bugs.github.io/" target="_blank" rel="noopener">Find Security Bugs</a></p>
 <p>也可以<a href="http://spotbugs.readthedocs.io/en/latest/implement-plugin.html" target="_blank" rel="noopener">自定义插件</a></p>
@@ -534,11 +536,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/07/06/SpotBugs安装及使用/">SpotBugss安装及使用</a></p>
+  <p><span>本文标题:</span><a href="/2018/07/06/SpotBugs安装及使用/">SpotBugs安装及使用</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ChengXiao 的个人博客">ChengXiao</a></p>
   <p><span>发布时间:</span>2018年07月06日 - 09:07</p>
-  <p><span>最后更新:</span>2018年07月06日 - 10:07</p>
-  <p><span>原始链接:</span><a href="/2018/07/06/SpotBugs安装及使用/" title="SpotBugss安装及使用">http://chengxiao19961022.github.io/2018/07/06/SpotBugs安装及使用/</a>
+  <p><span>最后更新:</span>2018年07月06日 - 17:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/06/SpotBugs安装及使用/" title="SpotBugs安装及使用">http://chengxiao19961022.github.io/2018/07/06/SpotBugs安装及使用/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://chengxiao19961022.github.io/2018/07/06/SpotBugs安装及使用/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
