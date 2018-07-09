@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="ChengXiao&#39;s Blog">
 <meta property="og:description" content="源码检测包括代码检查、静态结构分析、代码质量度量等。它可以由人工进行，充分发挥人的逻辑思维优势，也可以借助软件工具自动进行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-05T08:57:05.250Z">
+<meta property="og:updated_time" content="2018-07-09T06:04:20.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Findbugs的安装及使用">
 <meta name="twitter:description" content="源码检测包括代码检查、静态结构分析、代码质量度量等。它可以由人工进行，充分发挥人的逻辑思维优势，也可以借助软件工具自动进行。">
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,900
+                  1,969
                 </span>
               
 
@@ -526,12 +526,7 @@
 <h2 id="数据流分析"><a href="#数据流分析" class="headerlink" title="数据流分析"></a>数据流分析</h2><p>数据流分析也是一种软件验证技术，这种技术通过收集代码中引用到的变量信息，从而分析变量在程序中的赋值、引用以及传递等情况。对数据流进行 分析可以确定变量的定义以及在代码中被引用的情况，同时还能够检查代码数据流异常，如引用在前赋值在后、只赋值无引用等。数据流分析主要适合检验程序中的 数据域特性。</p>
 <h2 id="检测对象"><a href="#检测对象" class="headerlink" title="检测对象"></a>检测对象</h2><p>FindBugs检查.class文件，基于Bug Patterns概念，查找javabytecode(.class文件)中的潜在bug。主要检查bytecode中的bug patterns，如NullPoint空指针检查、没有合理关闭资源、字符串相同判断错（==，而不是equals）等。</p>
 <h2 id="检测能力"><a href="#检测能力" class="headerlink" title="检测能力"></a>检测能力</h2><p>Findbugs自带检测器，其中有60余种Bad practice，80余种Correctness，1种 Internationalization，12种Malicious code vulnerability，27种Multithreaded correctness，23种Performance，43种Dodgy。</p>
-<p>1）Bad practice 坏的实践：常见代码错误，用于静态代码检查时进行缺陷模式匹配</p>
-<p>2）Correctness 可能导致错误的代码，如空指针引用等</p>
-<p>3）国际化相关问题：如错误的字符串转换</p>
-<p>4）可能受到的恶意攻击，如访问权限修饰符的定义等</p>
-<p>5）多线程的正确性：如多线程编程时常见的同步，线程调度问题。</p>
-<p>6）运行时性能问题：如由变量定义，方法调用导致的代码低效问题。</p>
+<p>1) Bad practice 不佳实践：常见代码错误，用于静态代码检查时进行缺陷模式匹配(如重写equals但没重写 hashCode，或相反情况等)<br>2) Correctness 可能导致错误的代码(如空指针引用、无限循环等)<br>3) Internationalization 国际化相关问题（如错误的字符串转换等）<br>4) Malicious code vulnerability 可能受到的恶意攻击（如访问权限修饰符的定义等）<br>5) Multithreaded correctness 多线程的正确性（如多线程编程时常见的同步，线程调度问题等）<br>6) Performance 运行时性能问题（如由变量定义，方法调用导致的代码低效问题等）<br>7) Security 安全问题（如HTTP，SQL，DB等）<br>8) Dodgy code 导致自身错误的代码（如未确认的强制转换、冗余的空值检查等）</p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>FindBugs有两种使用形式，一是作为插件，放在Eclipse中使用，二是提供软件运行。而作为插件的形式比较方便简单，个人觉得使用起来比较合适。</p>
 <h1 id="深入理解findbugs"><a href="#深入理解findbugs" class="headerlink" title="深入理解findbugs"></a>深入理解findbugs</h1><ol>
 <li>Findbugs不是通过分析类文件的形式或结构来确定程序的意图，而是通常使用 观察者模式，检查类或者 JAR 文件，将字节码与一组缺陷模式进行对比以发现可能的问题。PMD也是一款静态代码分析工具，它是分析Java源文件。</li>
@@ -597,7 +592,7 @@
   <p><span>本文标题:</span><a href="/2018/07/03/Findbugs的安装及使用/">Findbugs的安装及使用</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ChengXiao 的个人博客">ChengXiao</a></p>
   <p><span>发布时间:</span>2018年07月03日 - 22:07</p>
-  <p><span>最后更新:</span>2018年07月05日 - 16:07</p>
+  <p><span>最后更新:</span>2018年07月09日 - 14:07</p>
   <p><span>原始链接:</span><a href="/2018/07/03/Findbugs的安装及使用/" title="Findbugs的安装及使用">http://chengxiao19961022.github.io/2018/07/03/Findbugs的安装及使用/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://chengxiao19961022.github.io/2018/07/03/Findbugs的安装及使用/"  aria-label="复制成功！"></i></span>
   </p>
@@ -964,7 +959,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共35.7k字</span>
+  <span class="post-count">博客全站共35.8k字</span>
 </div>
 
         
