@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chengxiao19961022.github.io/"/>
-  <updated>2018-07-10T09:26:13.159Z</updated>
+  <updated>2018-07-10T09:33:13.038Z</updated>
   <id>http://chengxiao19961022.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式-访问者模式入门</title>
+    <link href="http://chengxiao19961022.github.io/2018/07/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8Fe%E5%85%A5%E9%97%A8/"/>
+    <id>http://chengxiao19961022.github.io/2018/07/10/设计模式-访问者模式e入门/</id>
+    <published>2018-07-10T09:28:22.000Z</published>
+    <updated>2018-07-10T09:33:13.038Z</updated>
+    
+    <content type="html"><![CDATA[<hr><div class="note info"><p>访问者模式是设计模式中的一种</p></div><a id="more"></a><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul><li><a href="https://www.cnblogs.com/chengxingliang/archive/2011/10/24/2214033.html" target="_blank" rel="noopener">极速理解设计模式系列：18.访问者模式(Visitor Pattern)</a></li><li><a href="https://blog.csdn.net/chenjie19891104/article/details/6393770" target="_blank" rel="noopener">JAVA设计模式之Visitor模式</a></li><li><a href="https://blog.csdn.net/fanyun_01/article/details/51841355" target="_blank" rel="noopener">Visitor模式详解–设计模式</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;访问者模式是设计模式中的一种&lt;/p&gt;&lt;/div&gt;
+    
+    </summary>
+    
+      <category term="源码检测" scheme="http://chengxiao19961022.github.io/categories/%E6%BA%90%E7%A0%81%E6%A3%80%E6%B5%8B/"/>
+    
+    
+      <category term="设计模式" scheme="http://chengxiao19961022.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式-观察者模式入门</title>
@@ -484,31 +507,6 @@
       <category term="algorithm" scheme="http://chengxiao19961022.github.io/tags/algorithm/"/>
     
       <category term="C++" scheme="http://chengxiao19961022.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo多终端部署持续更新</title>
-    <link href="http://chengxiao19961022.github.io/2018/03/18/hexo%E5%A4%9A%E7%BB%88%E7%AB%AF%E9%83%A8%E7%BD%B2%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
-    <id>http://chengxiao19961022.github.io/2018/03/18/hexo多终端部署持续更新/</id>
-    <published>2018-03-18T11:45:41.000Z</published>
-    <updated>2018-03-20T05:02:16.956Z</updated>
-    
-    <content type="html"><![CDATA[<hr><div class="note info"><p>使用hexo+git写博客十分简便高效，然而多终端的部署问题有很多坑，本博客将持续更新在多终端部署时遇到的坑。</p></div><a id="more"></a><h1 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h1><h2 id="安装git并设置关联"><a href="#安装git并设置关联" class="headerlink" title="安装git并设置关联"></a>安装git并设置关联</h2><p>什么是Git ?简单来说Git是开源的分布式版本控制系统，用于敏捷高效地处理项目。我们网站在本地搭建好了，需要使用Git同步到GitHub上。如果想要了解Git的细节，参看廖雪峰老师的Git教程：Git教程 从Git官网下载：Git - Downloading Package 现在的机子基本都是64位的，选择64位的安装包，下载后安装，在命令行里输入git测试是否安装成功，若安装失败，参看其他详细的Git安装教程。安装成功后，将你的Git与GitHub帐号绑定，鼠标右击打开Git Bash</p><p>或者在菜单里搜索Git Bash，设置user.name和user.email配置信息：<br><code>git config --global user.name &quot;你的GitHub用户名&quot;</code><br><code>git config --global user.email &quot;你的GitHub注册邮箱&quot;</code></p><p>生成ssh密钥文件：<br><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code></p><p>然后直接三个回车即可，默认不需要设置密码然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制<br>打开GitHub_Settings_keys 页面，新建new SSH Key</p><p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。在Git Bash中检测GitHub公钥设置是否成功，输入 ssh git@github.com ：</p><h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>Hexo基于Node.js，Node.js下载地址：Download | Node.js 下载安装包，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v :</p><p>检测npm是否安装成功，在命令行中输入npm -v :</p><p>到这了，安装Hexo的环境已经全部搭建完成。</p><h2 id="github设置"><a href="#github设置" class="headerlink" title="github设置"></a>github设置</h2><ul><li>在yourname.github.io仓库内创建一个新的branch，如：hexo。</li><li>将该分支设置为默认分支<br><code>settings -&gt; branch -&gt; Default branch -&gt; update</code></li></ul><h2 id="在本地建立git仓库"><a href="#在本地建立git仓库" class="headerlink" title="在本地建立git仓库"></a>在本地建立git仓库</h2><blockquote><p>配置.gitignore文件。进入博客目录文件夹下，找到此文件，用sublime text 打开，在最后增加两行内容/.deploy_git和/public</p></blockquote><ul><li>进入blog文件夹，shift+右键打开终端</li><li><code>git init</code> Initialized empty Git repository初始化git仓库</li><li><code>git add -A</code> 添加本地所有文件</li><li><code>git commit -m &quot;blog source files&quot;</code> 提交到本地仓库</li><li><code>git branch hexo</code> 创建本地hexo分支</li></ul><h2 id="将本地仓库与远端关联"><a href="#将本地仓库与远端关联" class="headerlink" title="将本地仓库与远端关联"></a>将本地仓库与远端关联</h2><ul><li><code>git remote add origin git@github.com:yourname/yourname.github.io.git</code> 添加远程仓库</li><li><code>git push origin hexo -f</code> 将本地仓库推到远端仓库(默认为hexo分支)</li></ul><h2 id="另一终端的所有操作"><a href="#另一终端的所有操作" class="headerlink" title="另一终端的所有操作"></a>另一终端的所有操作</h2><blockquote><p>将远程clone至本地</p></blockquote><p><code>git clone -b hexo git@github.com:yourname/yourname.github.io.git</code></p><blockquote><p>进入clone下来的仓库以及<strong>next主题文件夹</strong>下执行安装(会根据package.json安装对应的依赖)</p></blockquote><p><code>npm install</code></p><blockquote><p>编辑本地文件后更新远程</p></blockquote><p><code>git add . ,git commit -m &quot;update info&quot;， git push origin hexo</code></p><blockquote><p>部署发布博客</p></blockquote><p><code>hexo clean hexo g -d</code></p><h1 id="踩坑记"><a href="#踩坑记" class="headerlink" title="踩坑记"></a>踩坑记</h1><p>暂无</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;使用hexo+git写博客十分简便高效，然而多终端的部署问题有很多坑，本博客将持续更新在多终端部署时遇到的坑。&lt;/p&gt;&lt;/div&gt;
-    
-    </summary>
-    
-      <category term="杂七杂八" scheme="http://chengxiao19961022.github.io/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
-    
-    
-      <category term="Hexo" scheme="http://chengxiao19961022.github.io/tags/Hexo/"/>
-    
-      <category term="Git" scheme="http://chengxiao19961022.github.io/tags/Git/"/>
     
   </entry>
   
