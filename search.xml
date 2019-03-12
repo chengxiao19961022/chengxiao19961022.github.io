@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[图的向量化表示方法]]></title>
+    <url>%2F2019%2F03%2F12%2F%E5%9B%BE%E7%9A%84%E5%90%91%E9%87%8F%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[特征工程是机器学习领域的基础，神经网络的输入永远是向量表示的，当输入为graph时如何对rawdata进行处理并向量化，保留网络结构以及节点、边的特征？本文列举了时下热门的分析方法。 参考资料： awesome-graph-embedding pytorch_geometric 介绍Documentation | paper PyTorch Geometric (PyG) is a geometric deep learning extension library for PyTorch. It consists of various methods for deep learning on graphs and other irregular structures, also known as geometric deep learning, from a variety of published papers. In addition, it consists of an easy-to-use mini-batch loader, multi gpu-support, a large number of common benchmark datasets (based on simple interfaces to create your own), and helpful transforms, both for learning on arbitrary graphs as well as on 3D meshes or point clouds. 安装 亲测有效系统版本ubuntu16.4.6lts 下载anaconda : wget https://www.anaconda.com/distribution/ 安装anaconda : bash /path/to/.sh source ~/.bashrc 替换conda源 : conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ conda config --set show_channel_urls yes 安装pytorch（需要根据处理器下载对应版本，这里时cpu版本）: pip install https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp37-cp37m-linux_x86_64.whl pip install torchvision 安装pytorch_geometric $ pip install --upgrade torch-scatter $ pip install --upgrade torch-sparse $ pip install --upgrade torch-cluster $ pip install --upgrade torch-spline-conv (optional) $ pip install torch-geometric 亲测使用方法（持续更新）Data数据结构torch_geometric.data.Data: data.x: Node feature matrix with shape [num_nodes, num_node_features] data.edge_index: Graph connectivity in COO format with shape [2, num_edges] and type torch.long data.edge_attr: Edge feature matrix with shape [num_edges, num_edge_features] data.y: Target to train against (may have arbitrary shape) data.pos: Node position matrix with shape [num_nodes, num_dimensions]所有的属性不是必须的，即可以不定义。 1234567891011import torchfrom torch_geometric.data import Dataedge_index = torch.tensor([[0, 1], [1, 0], [1, 2], [2, 1]], dtype=torch.long)x = torch.tensor([[-1], [0], [1]], dtype=torch.float)data = Data(x=x, edge_index=edge_index.t().contiguous())&gt;&gt;&gt; Data(x=[3, 1], edge_index=[2, 4]) graph分类将几张图表示成一个总的稀疏矩阵 12345678910111213from torch_geometric.datasets import TUDatasetfrom torch_geometric.data import DataLoaderdataset = TUDataset(root='/tmp/ENZYMES', name='ENZYMES')loader = DataLoader(dataset, batch_size=32, shuffle=True)for batch in loader: batch &gt;&gt;&gt; Batch(x=[1082, 21], edge_index=[2, 4066], y=[32], batch=[1082]) batch.num_graphs &gt;&gt;&gt; 32 上述代码的一个batch由32张图片组成，一共有1082个节点，y是一个1*32的数组，表示这32张图的分类，batch则标记了node属于哪个具体的graph。 构建自己的dataset12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758import torchfrom torch_geometric.data import Datafrom torch_geometric.data import DataLoaderimport torchfrom torch_geometric.data import InMemoryDatasetclass MyOwnDatasetTest(InMemoryDataset): def __init__(self, root, transform=None, pre_transform=None): super(MyOwnDatasetTest, self).__init__(root, transform, pre_transform) self.data, self.slices = torch.load(self.processed_paths[0]) @property def raw_file_names(self): return ['some_file_1', 'some_file_2'] # pass @property def processed_file_names(self): return ['data.pt'] def download(self): # Download to `self.raw_dir`. pass def process(self): # Read data into huge `Data` list. edge_index = torch.tensor([[0, 1], [1,2] ], dtype=torch.long) y1 = torch.tensor([0], dtype=torch.long) y2 = torch.tensor([1], dtype=torch.long) data1 = Data(edge_index=edge_index.t().contiguous(), y=y1) data2 = Data(edge_index=edge_index.t().contiguous(), y=y2) data_list = [data1, data2, data1, data2] if self.pre_filter is not None: data_list [data for data in data_list if self.pre_filter(data)] if self.pre_transform is not None: data_list = [self.pre_transform(data) for data in data_list] data, slices = self.collate(data_list) torch.save((data, slices), self.processed_paths[0])if __name__ == '__main__': dataset = MyOwnDatasetTest(root="/tmp/MyOwnDatasetTest") loader = DataLoader(dataset, batch_size=2, shuffle=True) for i in loader: b = 1 # edge_index = torch.tensor([[0, 1], # ], dtype=torch.long) # y = torch.tensor([0], dtype=torch.long) # data1 = Data(edge_index=edge_index.t().contiguous(), y=y) print("end") 核心在于process()函数，注意采用datalist装载不同的graph，这里不需要自己合并各个graph，该库会自动合并。在定义标记时，对于graph识别的问题，每张图只要定义一个1*1的标记即可，不需要对每个节点都标记。调用时定义root即可，调用后该框架会在root文件夹底下创建process和raw文件夹并序列化，下次调用直接调用即可。 使用神经网络进行训练examples 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111import os.path as ospimport torchimport torch.nn.functional as Ffrom torch.nn import Sequential, Linear, ReLUfrom torch_geometric.datasets import TUDatasetfrom torch_geometric.data import DataLoaderfrom torch_geometric.nn import GINConv, global_add_poolpath = osp.join(osp.dirname(osp.realpath(__file__)), '..', 'data', 'MUTAG')dataset = TUDataset(path, name='MUTAG').shuffle()test_dataset = dataset[:len(dataset) // 10]train_dataset = dataset[len(dataset) // 10:]test_loader = DataLoader(test_dataset, batch_size=128)train_loader = DataLoader(train_dataset, batch_size=128)for i in train_loader: a = 1class Net(torch.nn.Module): def __init__(self): super(Net, self).__init__() num_features = dataset.num_features dim = 32 nn1 = Sequential(Linear(num_features, dim), ReLU(), Linear(dim, dim)) self.conv1 = GINConv(nn1) self.bn1 = torch.nn.BatchNorm1d(dim) nn2 = Sequential(Linear(dim, dim), ReLU(), Linear(dim, dim)) self.conv2 = GINConv(nn2) self.bn2 = torch.nn.BatchNorm1d(dim) nn3 = Sequential(Linear(dim, dim), ReLU(), Linear(dim, dim)) self.conv3 = GINConv(nn3) self.bn3 = torch.nn.BatchNorm1d(dim) nn4 = Sequential(Linear(dim, dim), ReLU(), Linear(dim, dim)) self.conv4 = GINConv(nn4) self.bn4 = torch.nn.BatchNorm1d(dim) nn5 = Sequential(Linear(dim, dim), ReLU(), Linear(dim, dim)) self.conv5 = GINConv(nn5) self.bn5 = torch.nn.BatchNorm1d(dim) self.fc1 = Linear(dim, dim) self.fc2 = Linear(dim, dataset.num_classes) def forward(self, x, edge_index, batch): x = F.relu(self.conv1(x, edge_index)) x = self.bn1(x) x = F.relu(self.conv2(x, edge_index)) x = self.bn2(x) x = F.relu(self.conv3(x, edge_index)) x = self.bn3(x) x = F.relu(self.conv4(x, edge_index)) x = self.bn4(x) x = F.relu(self.conv5(x, edge_index)) x = self.bn5(x) x = global_add_pool(x, batch) x = F.relu(self.fc1(x)) x = F.dropout(x, p=0.5, training=self.training) x = self.fc2(x) return F.log_softmax(x, dim=-1)device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')model = Net().to(device)optimizer = torch.optim.Adam(model.parameters(), lr=0.01)def train(epoch): model.train() if epoch == 51: for param_group in optimizer.param_groups: param_group['lr'] = 0.5 * param_group['lr'] loss_all = 0 for data in train_loader: data = data.to(device) optimizer.zero_grad() output = model(data.x, data.edge_index, data.batch) loss = F.nll_loss(output, data.y) loss.backward() loss_all += loss.item() * data.num_graphs optimizer.step() return loss_all / len(train_dataset)def test(loader): model.eval() correct = 0 for data in loader: data = data.to(device) output = model(data.x, data.edge_index, data.batch) pred = output.max(dim=1)[1] correct += pred.eq(data.y).sum().item() return correct / len(loader.dataset)for epoch in range(1, 101): train_loss = train(epoch) train_acc = test(train_loader) test_acc = test(test_loader) print('Epoch: &#123;:03d&#125;, Train Loss: &#123;:.7f&#125;, ' 'Train Acc: &#123;:.7f&#125;, Test Acc: &#123;:.7f&#125;'.format(epoch, train_loss, train_acc, test_acc))]]></content>
+      <categories>
+        <category>机器学习与算法</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[静态数据流分析入门]]></title>
     <url>%2F2019%2F03%2F04%2F%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE%E6%B5%81%E5%88%86%E6%9E%90%2F</url>
     <content type="text"><![CDATA[编译器的一个重要功能是分析和优化代码。编译时分析（或称静态分析）得到若干信息后，编译器可以确定在何处应用何种变换是安全并且有利可图的。而其中一种重要的分析技术就是数据流分析。顾名思义，数据流分析就是分析数据如何在程序执行路径上流动的技术。 参考文章： 静态分析之数据流分析 SSA入门 定义编译器的一个重要功能是分析和优化代码。编译时分析（或称静态分析）得到若干信息后，编译器可以确定在何处应用何种变换是安全并且有利可图的。而其中一种重要的分析技术就是数据流分析。顾名思义，数据流分析就是分析数据如何在程序执行路径上流动的技术，那么数据流分析的前提条件就是基于 IR （源代码经过编译得到的中间表示形式）构造 CFG 控制流图。 一般应用场景基于数据流分析，可以实现多种全局优化： 复制传播：形如 u=v 的赋值之后，变量 u 用 v 代替 常量折叠：若每次运行时表达式的值是常量，则用此常量代替 全局公共子表达式：例如表达式 a+b 多处出现而且值都相同，那么可以只计算一次 死代码消除：删除其计算结果不被使用的语句等等。 数据流分析通用方法数据流问题研究的是程序的某个点处的数据流值。 数据流分析的通用方法是在控制流图上定义一组方程并迭代求解，一般分为正向传播和逆向传播。正向传播就是沿着控制流路径，状态向前传递，前驱块的值传到后继块；逆向传播就是逆着控制流路径，后继块的值反向传给前驱块。 传递函数与控制流约束。传递函数是指基本块的入口与出口的数据流值为两个集合，满足函数关系f，正向传播时入口值集 X，则出口值集为f(X)，逆向传播时出口值集X，则入口值集为f(X)。控制流约束是在一条路径两端的前驱与后继块的数据流值的传递关系。 到达定制与活跃变量分析到达定值考虑这样的一个问题，变量 x 在哪些地方被定值，在某个位置使用的 x 是这个值吗？ 某个地方变量 x 被赋值了，如果存在路径到达一个点，这个位置 x 被使用了，那么我们说定值 x 到达了此程序点。如果这条路径上 x 被重新定值，我们说 x 被杀死 (kill) 了。可以知道如果某个变量 x 的一个定值 d 到达点 p，那么 p 处使用的 x 的值就可能是 d 定义的。在流图的入口为 x 引入一个未定义值 ⊥，如果 ⊥ 能达到某个 x 的使用，那么说明这个地方的使用可能是未定义值，这就是一个程序错误隐患。 假设有一个程序的控制流图如下所示： 到达定值问题的传递函数被定义为：Out[s] = In[s] + gen - kill。gen 集合是块内的赋值语句产生的新定值，kill 集合是块内赋值语句 kill 的其他定值。对每个变量，有赋值语句则加入到 gen，其他位置的赋值语句都加入 kill。所有块的 gen/kill 集可以一趟扫描完成。路径上的约束为：In[B] = ∪ Out[P]，其中P是B的所有前驱块。另外还有边界条件：Out[Entry] = Φ。 建立完方程组之后，循环迭代，每轮迭代中，每个块的 In/Out 集合都在更新。直到所有的 In[s] 与 Out[s] 都不发生变化，此时就是最终的结果。这个结果是保守的，但不是精确的。因为路径是一个不可判定问题，我们只能尽可能保守的包含全部可能路径。因此，某些实际运行中不会走到的路径，也被我们允许穿越定值。伪代码如下： 1234567891011Init: Out[Entry] = Φ for each block: Out[B] = Φloops: In[B] = ∪ Out[P] Out[B] = In[B] + gen - kill 用表格表示计算结果如下： loop1 loop2 loop3 gen kill In Out In Out In Out Entry Φ Φ Φ Φ Φ Φ Φ Φ B1 1,2,3 4,5,6,7 Φ 1,2,3 Φ 1,2,3 Φ 1,2,3 B2 4,5 1,2,7 Φ 4,5 1,2,3,7 3,4,5 1,2,3,5,6,7 3,4,5,6 B3 6 3 Φ 6 3,4,5 4,5,6 3,4,5,6 4,5,6 B4 7 1,4 Φ 7 3,4,5,6 3,5,6,7 3,4,5,6 3,5,6,7 Exit Φ Φ Φ Φ 3,5,6,7 3,5,6,7 3,5,6,7 3,5,6,7 算法在第三轮停止。 以 exit 块为例，最终可到达的定值是d3, d5, d6, d7。也就是说图1中 d3, d5, d6, d7 这几行赋值语句的定值，能传递到结束位置。 活跃变量分析在这个例子中，我们希望知道变量 x 在某个位置 p 处的值，是否在流图上某条从 p 出发的路径上所使用。如果答案是真，那么我们说 x 在 p 上活跃 (live)，如果答案是假，我们说 x 在 p 上是死 (dead) 的。 这里我们用In[B] Out[B] 分别表示基本块的入口与出口处的活跃变量。这里定义 def 集合为变量在块中被定值之前未被使用，use 集合为变量在块中被使用前未被定值。很容易想到，在块中先被使用的变量在入口是活跃的，在块中先被定义的变量被杀死了，而块中不相关的变量则在块入口的状态与块出口的状态一致。则有传递函数为 In[B] = use + (Out[B] - def)。控制流约束为 Out[B] = ∪ In[S],（其中 S 为 B 的全部后继），等同于变量离开块时活跃当且仅当在某个后继块的入口处活跃。边界条件为 In[Exit] = Φ。 同样方程组迭代求解。伪码如下： 123456789101112Init: In[Exit] = Φ for each block: In[B] = Φloops: Out[B] = ∪ In[S] In[B] = Out[B] + use - def 可以看到这组方程的一个特点是逆向传播。从 Exit 开始，每个块出口传播到入口，后继块传播到前驱块。与上面的问题刚好相反。但是迭代求解的方法是相同的。 数据流问题的通用框架数据流分析研究的具体问题不同，但方法非常相似，就是在控制流图上定义一组方程组然后迭代求解。方程组有以下特点： 数据流值在每个结点 s 的前后分别记为 In[s] 与 Out[s] In[s] 与 Out[s] 之间有约束关系即传递函数，含义是单个块对数据流值的改变 控制流路径前后结点 s, s’ 的 In[s’] 与 Out[s] 有约束关系，含义是数据在路径上的流动 所有结点的 In[s] 与 Out[s] 及其相互约束关系构成方程组 迭代遍历控制流图，在每个结点处对方程反复求值，直到方程组的解到达定值即不动点 方程定义在数据流值上。数据流值传播的路径一般分正向和逆向。控制路径上的约束，通常是交集或并集，例如 In[s] = ∪ Out[s’] (例如定值问题和活跃变量问题) 或 In[s] = ∩ Out[s’] (例如可用表达式问题) 。块内的传递函数，通常写为 Out[s] = In[s] + GenSet - KillSet 的形式。 数据流问题都可以用这样的框架来解决，它们之间的区别无非是定义域不同，传递函数不同，控制流约束不同，或者数据流方向不同。 数据流分析算法分析一个算法必须回答几个问题：算法收敛性，算法是可停机的吗？算法正确性，结果是正确的吗？算法的复杂度可接受吗？ 数据流分析的算法框架可以抽象为一个代数问题。数据流值全部可能的取值的幂集为V，在 V 上定义一个半格 (semilattice)，有meet 运算 ∧。两个元素的 ∧ 运算得到它们的最大下界。半格的 meet 运算 ∧ 有以下特点：等幂：x ∧ x = x; 可交换 x ∧ y = y ∧ x; 有结合律x (y ∧ z) = (x ∧ y) ∧ z. ∧ 运算定义了半格上的偏序关系 ≤。半格的顶元素 T 满足：任意 x ∈ V, x ∧ T = x，底元素 ⊥ 满足：任意 x ∈ V, x ∧ ⊥ = ⊥。底即最小元素，顶即最大元素。 ∧ 运算实际就是控制流约束。在控制流算法框架里面，就是并集或者交集运算，偏序关系实际就是包含或被包含关系。以定值问题举例，如图2所示，所有可能的定值构成半格，顶为空集，底为满集。箭头的指向表明了偏序关系 ≤。控制流上的 meet 运算 ∧ 是并集运算∪, 偏序关系 ≤ 是 包含关系 ⊇。 框架中的传递函数族F: V → V，包含了块内的传递函数f，以及传递函数的组合。传递函数的组合封闭于函数族F。f ∈ F 是单调函数。x ≤ y 等价于 f(x) ≤ f(y). 基于以上模型，以正向传播为例，控制流算法框架的模型可以写作如下形式： 12345678910Init: for each block: Out[B] = TLoop: In[B] = ∧ Out[P] Out[B] = fb(In[B]) 我们来看迭代过程。每次迭代，对每个程序点 p 上的值，In[B] = ∧ Out[P] 导致值在格上位置下降，fb(In[B]) 是单调函数也会导致值在格上下降。格的高度是有限的，基本块的数量也是有限的，所以迭代算法必然能够收敛。迭代得到的结果就是在格上组合传递函数的最大不动点。 从 Entry 到基本块 B 上的路径 p，所有经过的块的传递函数组合为 fp = f1▫f2▫f3…= f1(f2(f3…))), 最理想的解 IDEAL[B] = ∧ fp(Entry)，其中 p 为所有可能路径。IDEAL[B] 满足数据流方程组，而且根据单调函数 f ∈ F 的等价关系 f(x ∧ y) ≤ f(x) ∧ f(y) 知道，IDEAL[B] 是最大的正确答案，即精确解。迭代解是正确的，但是可能小于理想解，即不够精确。 因为迭代算法是格下降的，格的最大高度为值集中元素数量 - 1，以块为单位时，最大高度是块的数量 - 1。同时每次迭代需要遍历全部基本块，所以最恶劣情况下，时间复杂度为 O(n ^ 2)，n 为基本块数量。 以上是对数据流迭代分析算法的简单总结。例子与图引用自《编译原理》。！]]></content>
@@ -32,8 +44,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -114,8 +126,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -126,8 +138,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -150,8 +162,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -173,8 +185,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -185,8 +197,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -197,8 +209,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -209,8 +221,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -221,8 +233,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -233,8 +245,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -245,8 +257,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -268,8 +280,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -293,8 +305,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -317,8 +329,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>algorithm</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -349,7 +361,7 @@
   <entry>
     <title><![CDATA[Markdown语法]]></title>
     <url>%2F2018%2F02%2F07%2FMarkdown%E8%AF%AD%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[习惯使用Markdown写博文，以下为Markdown基本语法。 标题This is an H1This is an H2这是 H1这是 H2这是 H6 特殊字符&copy; 区块引用 Blockquotes This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisseid sem consectetuer libero luctus adipiscing. This is the first level of quoting. This is nested blockquote. Back to the first level. 这是一个标题。 这是第一行列表项。 这是第二行列表项。 给出一些例子代码： return shell_exec(&quot;echo $input | $markdown_script&quot;); 列表 Red Green Blue Red Green Blue Red Green Blue Bird McHale Parish Bird McHale Parish Lorem ipsum dolor sit amet,consectetuer adipiscing elit.Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,viverra nec, fringilla in, laoreet vitae, risus. Donec sit amet nisl. Aliquam semper ipsum sit amet velit.Suspendisse id sem consectetuer libero luctus adipiscing. This is a list item with two paragraphs. Lorem ipsum dolorsit amet, consectetuer adipiscing elit. Aliquam hendreritmi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreetvitae, risus. Donec sit amet nisl. Aliquam semper ipsumsit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing. This is a list item with two paragraphs. This is the second paragraph in the list item. You’reonly required to indent the first line. Lorem ipsum dolorsit amet, consectetuer adipiscing elit. Another item in the same list. A list item with a blockquote: This is a blockquoteinside a list item. 代码（前面缩进）:tell application &quot;Foo&quot; beep end tell Use the printf() function. A backtick-delimited string in a code span: `foo` 在代码区段内，&amp; 和方括号都会被自动地转成 HTML 实体，这使得插入 HTML 原始码变得很容易，Markdown 会把下面这段： Please don’t use any haa tags. 分割线 链接Markdown 支持两种形式的链接语法： 行内式 和 参考式 两种形式。 不管是哪一种，链接文字都是用 [方括号] 来标记。 要建立一个行内式的链接，只要在方块括号后面紧接着圆括号并插入网址链接即可，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可，例如： 123This is [an example](http://example.com/ &quot;Title&quot;) inline link.[This link](http://example.net/) has no title attribute. 会产生： This is an example inline link. This link has no title attribute. 如果你是要链接到同样主机的资源，你可以使用相对路径： See my About page for details. 参考式的链接是在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记： 1This is [an example][id] reference-style link. 你也可以选择性地在两个方括号中间加上一个空格： 1This is [an example] [id] reference-style link. 接着，在文件的任意处，你可以把这个标记的链接内容定义出来：1[id]: http://example.com/ &quot;Optional Title Here&quot;. 链接内容定义的形式为： 方括号（前面可以选择性地加上至多三个空格来缩进），里面输入链接文字接着一个冒号接着一个以上的空格或制表符接着链接的网址选择性地接着 title 内容，可以用单引号、双引号或是括弧包着下面这三种链接的定义都是相同： 123[foo]: http://example.com/ &quot;Optional Title Here&quot;[foo]: http://example.com/ &apos;Optional Title Here&apos;[foo]: http://example.com/ (Optional Title Here) 请注意：有一个已知的问题是 Markdown.pl 1.0.1 会忽略单引号包起来的链接 title。 链接网址也可以用方括号包起来： 12345 [id]: &lt;http://example.com/&gt; &quot;Optional Title Here&quot; 你也可以把 title 属性放到下一行，也可以加一些缩进，若网址太长的话，这样会比较好看：[id]: http://example.com/longish/path/to/resource/here &quot;Optional Title Here&quot; 网址定义只有在产生链接的时候用到，并不会直接出现在文件之中。 链接辨别标签可以有字母、数字、空白和标点符号，但是并不区分大小写，因此下面两个链接是一样的： 12 [link text][a][link text][A] 隐式链接标记功能让你可以省略指定链接标记，这种情形下，链接标记会视为等同于链接文字，要用隐式链接标记只要在链接文字后面加上一个空的方括号，如果你要让 “Google” 链接到 google.com，你可以简化成： [Google][] 然后定义链接内容： [Google]: http://google.com/ 由于链接文字可能包含空白，所以这种简化型的标记内也许包含多个单词： Visit [Daring Fireball][] for more information. 然后接着定义链接： [Daring Fireball]: http://daringfireball.net/ 链接的定义可以放在文件中的任何一个地方，我比较偏好直接放在链接出现段落的后面，你也可以把它放在文件最后面，就像是注解一样。 下面是一个参考式链接的范例： I get 10 times more traffic from [Google] [1] than from [Yahoo] [2] or [MSN] [3]. [1]: http://google.com/ &quot;Google&quot; [2]: http://search.yahoo.com/ &quot;Yahoo Search&quot; [3]: http://search.msn.com/ &quot;MSN Search&quot; 如果改成用链接名称的方式写： I get 10 times more traffic from [Google][] than from [Yahoo][] or [MSN][]. [google]: http://google.com/ &quot;Google&quot; [yahoo]: http://search.yahoo.com/ &quot;Yahoo Search&quot; [msn]: http://search.msn.com/ &quot;MSN Search&quot; 上面两种写法都会产生下面的 HTML。 &lt;p&gt;I get 10 times more traffic from &lt;a href=&quot;http://google.com/&quot; title=&quot;Google&quot;&gt;Google&lt;/a&gt; than from &lt;a href=&quot;http://search.yahoo.com/&quot; title=&quot;Yahoo Search&quot;&gt;Yahoo&lt;/a&gt; or &lt;a href=&quot;http://search.msn.com/&quot; title=&quot;MSN Search&quot;&gt;MSN&lt;/a&gt;.&lt;/p&gt; 下面是用行内式写的同样一段内容的 Markdown 文件，提供作为比较之用： I get 10 times more traffic from [Google](http://google.com/ &quot;Google&quot;) than from [Yahoo](http://search.yahoo.com/ &quot;Yahoo Search&quot;) or [MSN](http://search.msn.com/ &quot;MSN Search&quot;). 参考式的链接其实重点不在于它比较好写，而是它比较好读，比较一下上面的范例，使用参考式的文章本身只有 81 个字符，但是用行内形式的却会增加到 176 个字元，如果是用纯 HTML 格式来写，会有 234 个字元，在 HTML 格式中，标签比文本还要多。 使用 Markdown 的参考式链接，可以让文件更像是浏览器最后产生的结果，让你可以把一些标记相关的元数据移到段落文字之外，你就可以增加链接而不让文章的阅读感觉被打断。 强调single asterisks single underscores double asterisks double underscores 图片 很明显地，要在纯文字应用中设计一个「自然」的语法来插入图片是有一定难度的。 Markdown 使用一种和链接很相似的语法来标记图片，同样也允许两种样式： 行内式和参考式。 行内式的图片语法看起来像是： 详细叙述如下： 一个惊叹号 !接着一个方括号，里面放上图片的替代文字接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 ‘title’ 文字。参考式的图片语法则长得像这样： 「id」是图片参考的名称，图片参考的定义方式则和连结参考一样： 到目前为止， Markdown 还没有办法指定图片的宽高，如果你需要的话，你可以使用普通的 标签。 z自动链接http://example.com/ &#97;&#100;&#100;&#114;&#x65;&#115;&#115;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#x2e;&#99;&#x6f;&#x6d; 反斜杠插入特殊字符 Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号： \反斜线 ` 反引号 * 星号 _ 底线 {} 花括号 [] 方括号 () 括弧 # 井字号 + 加号 - 减号 . 英文句点 ! 惊叹号]]></content>
+    <content type="text"><![CDATA[习惯使用Markdown写博文，以下为Markdown基本语法。 标题This is an H1This is an H2这是 H1这是 H2这是 H6 特殊字符&copy; 区块引用 Blockquotes This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus. Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisseid sem consectetuer libero luctus adipiscing. This is the first level of quoting. This is nested blockquote. Back to the first level. 这是一个标题。 这是第一行列表项。 这是第二行列表项。 给出一些例子代码： return shell_exec(&quot;echo $input | $markdown_script&quot;); 列表 Red Green Blue Red Green Blue Red Green Blue Bird McHale Parish Bird McHale Parish Lorem ipsum dolor sit amet,consectetuer adipiscing elit.Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,viverra nec, fringilla in, laoreet vitae, risus. Donec sit amet nisl. Aliquam semper ipsum sit amet velit.Suspendisse id sem consectetuer libero luctus adipiscing. This is a list item with two paragraphs. Lorem ipsum dolorsit amet, consectetuer adipiscing elit. Aliquam hendreritmi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreetvitae, risus. Donec sit amet nisl. Aliquam semper ipsumsit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing. This is a list item with two paragraphs. This is the second paragraph in the list item. You’reonly required to indent the first line. Lorem ipsum dolorsit amet, consectetuer adipiscing elit. Another item in the same list. A list item with a blockquote: This is a blockquoteinside a list item. 代码（前面缩进）:tell application &quot;Foo&quot; beep end tell Use the printf() function. A backtick-delimited string in a code span: `foo` 在代码区段内，&amp; 和方括号都会被自动地转成 HTML 实体，这使得插入 HTML 原始码变得很容易，Markdown 会把下面这段： Please don’t use any haa tags. 分割线 链接Markdown 支持两种形式的链接语法： 行内式 和 参考式 两种形式。 不管是哪一种，链接文字都是用 [方括号] 来标记。 要建立一个行内式的链接，只要在方块括号后面紧接着圆括号并插入网址链接即可，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可，例如： 123This is [an example](http://example.com/ &quot;Title&quot;) inline link.[This link](http://example.net/) has no title attribute. 会产生： This is an example inline link. This link has no title attribute. 如果你是要链接到同样主机的资源，你可以使用相对路径： See my About page for details. 参考式的链接是在链接文字的括号后面再接上另一个方括号，而在第二个方括号里面要填入用以辨识链接的标记： 1This is [an example][id] reference-style link. 你也可以选择性地在两个方括号中间加上一个空格： 1This is [an example] [id] reference-style link. 接着，在文件的任意处，你可以把这个标记的链接内容定义出来：1[id]: http://example.com/ &quot;Optional Title Here&quot;. 链接内容定义的形式为： 方括号（前面可以选择性地加上至多三个空格来缩进），里面输入链接文字接着一个冒号接着一个以上的空格或制表符接着链接的网址选择性地接着 title 内容，可以用单引号、双引号或是括弧包着下面这三种链接的定义都是相同： 123[foo]: http://example.com/ &quot;Optional Title Here&quot;[foo]: http://example.com/ &apos;Optional Title Here&apos;[foo]: http://example.com/ (Optional Title Here) 请注意：有一个已知的问题是 Markdown.pl 1.0.1 会忽略单引号包起来的链接 title。 链接网址也可以用方括号包起来： 12345 [id]: &lt;http://example.com/&gt; &quot;Optional Title Here&quot; 你也可以把 title 属性放到下一行，也可以加一些缩进，若网址太长的话，这样会比较好看：[id]: http://example.com/longish/path/to/resource/here &quot;Optional Title Here&quot; 网址定义只有在产生链接的时候用到，并不会直接出现在文件之中。 链接辨别标签可以有字母、数字、空白和标点符号，但是并不区分大小写，因此下面两个链接是一样的： 12 [link text][a][link text][A] 隐式链接标记功能让你可以省略指定链接标记，这种情形下，链接标记会视为等同于链接文字，要用隐式链接标记只要在链接文字后面加上一个空的方括号，如果你要让 “Google” 链接到 google.com，你可以简化成： [Google][] 然后定义链接内容： [Google]: http://google.com/ 由于链接文字可能包含空白，所以这种简化型的标记内也许包含多个单词： Visit [Daring Fireball][] for more information. 然后接着定义链接： [Daring Fireball]: http://daringfireball.net/ 链接的定义可以放在文件中的任何一个地方，我比较偏好直接放在链接出现段落的后面，你也可以把它放在文件最后面，就像是注解一样。 下面是一个参考式链接的范例： I get 10 times more traffic from [Google] [1] than from [Yahoo] [2] or [MSN] [3]. [1]: http://google.com/ &quot;Google&quot; [2]: http://search.yahoo.com/ &quot;Yahoo Search&quot; [3]: http://search.msn.com/ &quot;MSN Search&quot; 如果改成用链接名称的方式写： I get 10 times more traffic from [Google][] than from [Yahoo][] or [MSN][]. [google]: http://google.com/ &quot;Google&quot; [yahoo]: http://search.yahoo.com/ &quot;Yahoo Search&quot; [msn]: http://search.msn.com/ &quot;MSN Search&quot; 上面两种写法都会产生下面的 HTML。 &lt;p&gt;I get 10 times more traffic from &lt;a href=&quot;http://google.com/&quot; title=&quot;Google&quot;&gt;Google&lt;/a&gt; than from &lt;a href=&quot;http://search.yahoo.com/&quot; title=&quot;Yahoo Search&quot;&gt;Yahoo&lt;/a&gt; or &lt;a href=&quot;http://search.msn.com/&quot; title=&quot;MSN Search&quot;&gt;MSN&lt;/a&gt;.&lt;/p&gt; 下面是用行内式写的同样一段内容的 Markdown 文件，提供作为比较之用： I get 10 times more traffic from [Google](http://google.com/ &quot;Google&quot;) than from [Yahoo](http://search.yahoo.com/ &quot;Yahoo Search&quot;) or [MSN](http://search.msn.com/ &quot;MSN Search&quot;). 参考式的链接其实重点不在于它比较好写，而是它比较好读，比较一下上面的范例，使用参考式的文章本身只有 81 个字符，但是用行内形式的却会增加到 176 个字元，如果是用纯 HTML 格式来写，会有 234 个字元，在 HTML 格式中，标签比文本还要多。 使用 Markdown 的参考式链接，可以让文件更像是浏览器最后产生的结果，让你可以把一些标记相关的元数据移到段落文字之外，你就可以增加链接而不让文章的阅读感觉被打断。 强调single asterisks single underscores double asterisks double underscores 图片 很明显地，要在纯文字应用中设计一个「自然」的语法来插入图片是有一定难度的。 Markdown 使用一种和链接很相似的语法来标记图片，同样也允许两种样式： 行内式和参考式。 行内式的图片语法看起来像是： 详细叙述如下： 一个惊叹号 !接着一个方括号，里面放上图片的替代文字接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上 选择性的 ‘title’ 文字。参考式的图片语法则长得像这样： 「id」是图片参考的名称，图片参考的定义方式则和连结参考一样： 到目前为止， Markdown 还没有办法指定图片的宽高，如果你需要的话，你可以使用普通的 标签。 z自动链接http://example.com/ &#97;&#x64;&#100;&#x72;&#101;&#115;&#115;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#109; 反斜杠插入特殊字符 Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号： \反斜线 ` 反引号 * 星号 _ 底线 {} 花括号 [] 方括号 () 括弧 # 井字号 + 加号 - 减号 . 英文句点 ! 惊叹号]]></content>
       <categories>
         <category>写作</category>
       </categories>
